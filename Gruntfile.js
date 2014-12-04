@@ -8,7 +8,7 @@ module.exports = function (grunt) {
             main: {
                 src: [
                     'js/app.js',
-                    'js/components.js'
+                    'js/controller.js'
                 ],
                 dest: 'js/script.js'
             }
