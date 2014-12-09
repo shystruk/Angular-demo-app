@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Mac",
+        "id": "mac"
+    },
+    {
+        "name": "iPhone",
+        "id": "iphone"
+    },
+    {
+        "name": "iPad",
+        "id": "ipad"
+    },
+    {
+        "name": "iPod",
+        "id": "ipod"
+    },
+    {
+        "name": "AppleTV",
+        "id": "appletv"
+    }
+]

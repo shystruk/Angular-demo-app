@@ -1,0 +1,17 @@
+<div class="row top-menu" ng-controller="topBarCtrl as top">
+    <div class="large-2 columns">
+        <a ng-href="#/index">
+            <img class="animated" alt="V.S.12"
+                 ng-src="{{logoUrl}}" ng-class="{rotateIn: hover}"
+                 ng-mouseover="hover = true" ng-mouseleave="hover = false" />
+        </a>
+    </div>
+    <div class="large-10 columns">
+        <dl class="sub-nav">
+            <dd ng-repeat="name in menuName">
+                <h5><a ng-href="#/{{name.id}}">{{name.name}}</a></h5>
+            </dd>
+        </dl>
+        <a class="sign-in" ng-href="#/"><i class="fa fa-sign-in fa-lg"></i>Sign-In</a>
+    </div>
+</div>
