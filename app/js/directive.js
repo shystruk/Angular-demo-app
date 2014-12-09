@@ -4,6 +4,6 @@
 app.directive('topBar', function () {
     return {
         restrict: 'E',
-        templateUrl: 'template/top-bar/top-menu.html'
-    }
+        templateUrl: 'app/template/top-bar/top-menu.html'
+    };
 });
