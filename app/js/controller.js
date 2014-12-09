@@ -13,8 +13,8 @@ app.controller('topBarCtrl', function ($scope, $http) {
 /**
  * Home Ctrl
  */
-app.controller('homeCtrl', function() {
-
+app.controller('homeCtrl', function($scope) {
+    $scope.home = this;
 });
 
 

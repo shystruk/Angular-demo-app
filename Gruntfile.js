@@ -7,16 +7,18 @@ module.exports = function (grunt) {
         concat: {
             main: {
                 src: [
-                    'js/app.js',
-                    'js/controller.js'
+                    'app/js/app.js',
+                    'app/js/controller.js',
+                    'app/js/directive.js',
+                    'app/js/slider/home_slider.js'
                 ],
-                dest: 'js/script.js'
+                dest: 'app/js/script.js'
             }
         },
         uglify: {
             main: {
                 files: {
-                    'js/script.min.js': '<%= concat.main.dest %>'
+                    'app/js/script.min.js': '<%= concat.main.dest %>'
                 }
             }
         },
@@ -25,6 +27,14 @@ module.exports = function (grunt) {
                 files: '<%= concat.main.src %>',
                 tasks: 'concat'
             }
+        },
+        connect: {
+            test: {
+                options: {
+                    port: 8000,
+                    base: '.'
+                }
+            }
         }
     });
 
@@ -32,6 +42,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     //default
     grunt.registerTask('default', ['concat', 'uglify']);
