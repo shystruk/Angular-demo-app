@@ -6,12 +6,25 @@
                  ng-mouseover="hover = true" ng-mouseleave="hover = false" />
         </a>
     </div>
-    <div class="large-10 columns">
+    <div class="large-9 columns">
         <dl class="sub-nav">
             <dd ng-repeat="name in menuName">
                 <h5><a ng-href="#/{{name.id}}">{{name.name}}</a></h5>
             </dd>
         </dl>
-        <a class="sign-in" ng-href="#/"><i class="fa fa-sign-in fa-lg"></i>Sign-In</a>
+        <a class="sign-in" ng-href="#/"><i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}</a>
+    </div>
+    <div class="large-1 columns" ng-controller="changeLangCtrl as lang">
+        <ul class="app-language">
+            <li class="current-language">
+                <img ng-src="app/image/flags/{{currentLang}}.png" alt="Language" />
+            </li>
+            <ul class="list-language">
+                <li class="lang" ng-click="changeLanguage('fr')"><img src="app/image/flags/fr.png" alt="France"/>France</li>
+                <li class="lang" ng-click="changeLanguage('de')"><img src="app/image/flags/de.png" alt="Deutschland"/>Deutschland</li>
+                <li class="lang" ng-click="changeLanguage('uk_UA')"><img src="app/image/flags/uk_UA.png" alt="Ukraine"/>Ukraine</li>
+                <li class="lang" ng-click="changeLanguage('en_US')"><img src="app/image/flags/en_US.png" alt="North America"/>North America</li>
+            </ul>
+        </ul>
     </div>
 </div>

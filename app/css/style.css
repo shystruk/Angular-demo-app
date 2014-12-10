@@ -1,3 +1,22 @@
+/* base */
+textarea {
+    width: 100% !important; /*resize only vertical*/
+    overflow: auto;
+    resize: none; /*if field not be resize*/
+}
+input, textarea {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+ul, ol {
+    margin: 0;
+}
+ul li, ol li {
+    list-style: outside none none;
+}
+
+
 /* top bar */
 .top-menu {
     margin-top: 20px;
@@ -25,6 +44,54 @@
     text-transform: uppercase;
     color: #000000;
     font-weight: bold;
+}
+
+/* language */
+.app-language {
+    position: relative;
+    margin-top: 19px;
+}
+.list-language {
+    display: none;
+}
+.current-language {
+    display: block;
+    width: 35px;
+}
+.current-language > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.app-language:hover .list-language {
+    background-color: white;
+    border-bottom: 4px solid #000000;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    padding-left: 94%;
+    padding-top: 20px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 23px;
+    width: 280px;
+    z-index: 2;
+}
+.lang {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.lang:hover {
+    text-decoration: underline;
+}
+.lang > img {
+    display: inline-block;
+    height: auto;
+    margin-right: 10px;
+    width: 40px;
 }
 
 /* animation for logo */
@@ -138,6 +205,12 @@
 }
 .wallop-slider__btn--previous {
     left: 0;
+}
+.slider-price {
+    bottom: 5%;
+    font-size: 40px;
+    left: 20%;
+    position: absolute;
 }
 /*==========  SPECIAL CONFIG  ==========*/
 .wallop-slider--rotate .wallop-slider__item--hide-previous,

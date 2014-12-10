@@ -1,6 +1,11 @@
 'use strict';
 
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', [
+    'ngRoute',
+    'ngResource',
+    'ngCookies',
+    'pascalprecht.translate'
+]);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
@@ -11,6 +16,9 @@ app.config(['$routeProvider', function ($routeProvider) {
         when('/mac', {
             templateUrl: 'app/template/product/mac.html',
             controller: 'macCtrl'
+        }).
+        otherwise({
+            redirectTo: '/'
         });
 }]);
 

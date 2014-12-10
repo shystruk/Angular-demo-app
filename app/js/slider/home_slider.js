@@ -1,10 +1,12 @@
 /**
  * Created by v.stokolosa on 12/9/14.
  */
+'use strict';
+
 app.directive('wallopSlider', function () {
     return {
         template: '<div class="wallop-slider {{animationClass}}"><ul class="wallop-slider__list">' +
-                  '<li class="wallop-slider__item {{itemClasses[$index]}}" ng-repeat="i in images"><img src="{{i}}"></li>' +
+                  '<li class="wallop-slider__item {{itemClasses[$index]}}" ng-repeat="i in images"><img ng-src="{{i.src}}" /><span class="slider-price">{{"PRICE" | translate}} {{i.price | currency}}</span></li>' +
                   '</ul>' +
                   '<a ng-show="images.length>1" class="wallop-slider__btn wallop-slider__btn--previous btn btn--previous" ng-disabled="prevDisabled" ng-click="onPrevButtonClicked()">' +
                   '<i class="arrow-left"></i></a>' +
@@ -15,6 +17,7 @@ app.directive('wallopSlider', function () {
         replace: false,
         scope: {
             images: '=',
+            prices: '=',
             animation: '@',
             currentItemIndex: '=',
             onNext: '&',

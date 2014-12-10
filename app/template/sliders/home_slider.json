@@ -1,0 +1,14 @@
+[
+    {
+        "src": "app/image/home-slider/slider-1.jpg",
+        "price": "1199"
+    },
+    {
+        "src": "app/image/home-slider/slider-2.jpg",
+        "price": "1299"
+    },
+    {
+        "src": "app/image/home-slider/slider-3.jpg",
+        "price": "1399"
+    }
+]
