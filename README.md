@@ -1,4 +1,4 @@
-AngularJS-first-app-
+Angular responsive app
 ====================
 
-First AngularJS App
+Angular responsive app
