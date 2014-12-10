@@ -3,12 +3,10 @@
 /**
  * Top Menu Ctrl
  */
-app.controller('topBarCtrl', ['$scope', '$cookies', '$http', function ($scope, $cookies, $http) {
+app.controller('topBarCtrl', ['$scope', '$cookies', 'Menu', function ($scope, $cookies, Menu) {
     $scope.menuName = [];
 
-    $http.get('app/template/top-bar/top-menu.json').success(function (data) {
-        $scope.menuName = data;
-    });
+    $scope.menuName = Menu.query();
 
     $scope.logoUrl = 'app/image/logo.jpg';
 

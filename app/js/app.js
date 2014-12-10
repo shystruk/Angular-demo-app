@@ -4,7 +4,8 @@ var app = angular.module('app', [
     'ngRoute',
     'ngResource',
     'ngCookies',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'topmenuServices'
 ]);
 
 app.config(['$routeProvider', function ($routeProvider) {

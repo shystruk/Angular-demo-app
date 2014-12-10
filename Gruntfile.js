@@ -12,13 +12,13 @@ module.exports = function (grunt) {
                     'app/js/directive.js',
                     'app/js/slider/home_slider.js'
                 ],
-                dest: 'app/js/script.js'
+                dest: 'app/js/grunt_files/script.js'
             }
         },
         uglify: {
             main: {
                 files: {
-                    'app/js/script.min.js': '<%= concat.main.dest %>'
+                    'app/js/grunt_files/script.min.js': '<%= concat.main.dest %>'
                 }
             }
         },
