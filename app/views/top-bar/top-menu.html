@@ -1,4 +1,5 @@
 <div class="row top-menu" ng-controller="topBarCtrl as top">
+
     <div class="large-2 columns">
         <a ng-href="#/index">
             <img class="animated" alt="V.S.12"
@@ -6,14 +7,16 @@
                  ng-mouseover="hover = true" ng-mouseleave="hover = false" />
         </a>
     </div>
+
     <div class="large-9 columns">
         <dl class="sub-nav">
             <dd ng-repeat="name in menuName">
                 <h5><a ng-href="#/{{name.id}}">{{name.name}}</a></h5>
             </dd>
         </dl>
-        <a class="sign-in" ng-href="#/"><i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}</a>
+        <a class="sign-in" ng-href="#/login"><i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}</a>
     </div>
+
     <div class="large-1 columns" ng-controller="changeLangCtrl as lang">
         <ul class="app-language">
             <li class="current-language">
@@ -27,4 +30,5 @@
             </ul>
         </ul>
     </div>
+
 </div>

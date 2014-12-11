@@ -1,0 +1,29 @@
+<!-- top menu -->
+<top-bar></top-bar>
+
+<div class="row login-page" ng-controller="loginCtrl">
+    <form name="formLogin" novalidate>
+
+        <div class="large-3 large-offset-3 columns">
+            <input type="text" id="login" class="error" name="login"
+                   placeholder="{{'LOGIN' | translate}}" required
+                   ng-model="credentials.login"/>
+            <small class="error" ng-show="formLogin.login.$invalid && !formLogin.login.$pristine">Invalid entry</small>
+        </div>
+
+        <div class="large-3 columns">
+            <input type="password" id="password" class="error" name="password"
+                   placeholder="{{'PASSWORD' | translate}}"
+                   ng-minlength="4" required
+                   ng-model="credentials.password"/>
+            <small class="error" ng-show="formLogin.password.$invalid && !formLogin.password.$pristine">Invalid entry</small>
+        </div>
+
+        <div class="row login-submit">
+            <div class="large-6 large-offset-3 columns">
+                <button type="submit" class="button" ng-click="signIn()" ng-disabled="formLogin.$invalid">{{"SIGN-IN" | translate}}</button>
+            </div>
+        </div>
+
+    </form>
+</div>

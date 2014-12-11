@@ -5,11 +5,11 @@ var app = angular.module('app', ['ngRoute']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'app/template/home.html',
+            templateUrl: 'app/views/home.html',
             controller: 'homeCtrl'
         }).
         when('/mac', {
-            templateUrl: 'app/template/product/mac.html',
+            templateUrl: 'app/views/product/mac.html',
             controller: 'macCtrl'
         });
 }]);
@@ -19,7 +19,7 @@ app.config(['$routeProvider', function ($routeProvider) {
  * Top Menu Ctrl
  */
 app.controller('topBarCtrl', function ($scope, $http) {
-    $http.get('app/template/top-bar/top-menu.json').success(function (data) {
+    $http.get('app/views/top-bar/top-menu.json').success(function (data) {
         $scope.menuName = data;
     });
 
@@ -54,7 +54,7 @@ app.controller('homeSliderCtrl', function($scope) {
 app.directive('topBar', function () {
     return {
         restrict: 'E',
-        templateUrl: 'app/template/top-bar/top-menu.html'
+        templateUrl: 'app/views/top-bar/top-menu.html'
     };
 });
 

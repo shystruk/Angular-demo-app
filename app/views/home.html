@@ -1,6 +1,9 @@
 <!-- top menu -->
 <top-bar></top-bar>
 
+<!-- hello user message -->
+<p ng-controller="loginCtrl" ng-show="messageLogin.length > 1">{{messageLogin}}</p>
+
 <!-- slider -->
 <div ng-controller="homeSliderCtrl">
     <wallop-slider

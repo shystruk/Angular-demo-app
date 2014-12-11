@@ -15,6 +15,9 @@ ul, ol {
 ul li, ol li {
     list-style: outside none none;
 }
+.mt-50 {
+    margin-top: 50px;
+}
 
 
 /* top bar */
@@ -46,6 +49,20 @@ ul li, ol li {
     font-weight: bold;
 }
 
+/* login */
+.login-page {
+    margin-top: 50px;
+}
+.login-page .error {
+    margin-bottom: 0;
+}
+.login-page .button {
+    width: 100%;
+}
+.login-submit .large-6 {
+    padding: 0 22px;
+    margin-top: 20px;
+}
 /* language */
 .app-language {
     position: relative;

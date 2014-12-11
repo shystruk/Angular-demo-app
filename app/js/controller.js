@@ -9,17 +9,42 @@ app.controller('topBarCtrl', ['$scope', '$cookies', 'Menu', function ($scope, $c
     $scope.menuName = Menu.query();
 
     $scope.logoUrl = 'app/image/logo.jpg';
+}]);
 
+
+/**
+ * Login Ctrl
+ */
+app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.credentials = {
+        login: '',
+        password: ''
+    };
+
+    $scope.signIn = function () {
+        if ($scope.credentials.login === 'guest' && $scope.credentials.password === 'guest') {
+            $location.path('/account');
+        }
+    };
 }]);
 
 
 /**
  * Home Ctrl
  */
-app.controller('homeCtrl', ['$scope', '$cookies', function ($scope, $cookies) {
-    console.log($cookies.lang);
+app.controller('homeCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.logOut = function () {
+        $location.path = ('home');
+    };
 }]);
 
+
+/**
+ *  My account Ctrl
+ */
+app.controller('accountCtrl', ['$scope', function ($scope) {
+
+}]);
 
 /**
  * Home Slider Ctrl
@@ -29,7 +54,7 @@ app.controller('homeSliderCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.images = [];
 
-    $http.get('app/template/sliders/home_slider.json').success(function (success) {
+    $http.get('app/views/sliders/home_slider.json').success(function (success) {
         $scope.images = success;
     });
 }]);
