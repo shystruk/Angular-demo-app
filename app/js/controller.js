@@ -3,13 +3,25 @@
 /**
  * Top Menu Ctrl
  */
-app.controller('topBarCtrl', ['$scope', '$cookies', 'Menu', function ($scope, $cookies, Menu) {
+//====== RESTful functionality ===============
+//app.controller('topBarCtrl', ['$scope', 'Menu', function ($scope, Menu) {
+//    $scope.menuName = [];
+//
+//    $scope.menuName = Menu.query();
+//
+//    $scope.logoUrl = 'app/image/logo.jpg';
+//}]);
+//============== http request ===========
+app.controller('topBarCtrl', ['$scope', 'MenuHTTP', function ($scope, MenuHTTP) {
+    $scope.logoUrl = 'app/image/logo.jpg';
+
     $scope.menuName = [];
 
-    $scope.menuName = Menu.query();
-
-    $scope.logoUrl = 'app/image/logo.jpg';
+    MenuHTTP.names(function (data) {
+        $scope.menuName = data;
+    });
 }]);
+
 
 
 /**
@@ -53,13 +65,11 @@ app.controller('accountCtrl', ['$scope', function ($scope) {
 /**
  * Home Slider Ctrl
  */
-app.controller('homeSliderCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.currentSliderIndex = 1;
-
+app.controller('homeSliderCtrl', ['$scope', 'HomeSlider', function ($scope, HomeSlider) {
     $scope.images = [];
 
-    $http.get('app/views/sliders/home_slider.json').success(function (success) {
-        $scope.images = success;
+    HomeSlider.image(function (data) {
+        $scope.images = data;
     });
 }]);
 
