@@ -1,3 +1,135 @@
+'use strict';
+
+var app = angular.module('app', [
+    'ngRoute',
+    'ngResource',
+    'ngCookies',
+    'pascalprecht.translate',
+    'topmenuServices'
+]);
+
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+        when('/', {
+            templateUrl: 'app/views/home.html',
+            controller: 'homeCtrl'
+        }).
+        when('/mac', {
+            templateUrl: 'app/views/product/mac.html',
+            controller: 'macCtrl'
+        }).
+        when('/login', {
+            templateUrl: 'app/views/top-bar/login.html',
+            controller: 'loginCtrl'
+        }).
+        when('/account', {
+            templateUrl: 'app/views/account/my_account.html',
+            controller: 'accountCtrl'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
+}]);
+
+
+/**
+ * Created by v.stokolosa on 12/10/14.
+ */
+'use strict';
+
+angular.module('topmenuServices', ['ngResource']).
+    factory('Menu', ['$resource', function ($resource) {
+        return $resource('app/views/top-bar/:topFile.json', {}, {
+            query: {method: 'GET', params: {topFile: 'top-menu'}, isArray: true}
+        });
+    }]);
+
+'use strict';
+
+/**
+ * Top Menu Ctrl
+ */
+app.controller('topBarCtrl', ['$scope', '$cookies', 'Menu', function ($scope, $cookies, Menu) {
+    $scope.menuName = [];
+
+    $scope.menuName = Menu.query();
+
+    $scope.logoUrl = 'app/image/logo.jpg';
+}]);
+
+
+/**
+ * Login Ctrl
+ */
+app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.credentials = {
+        login: '',
+        password: ''
+    };
+
+    $scope.signIn = function () {
+        if ($scope.credentials.login === 'guest' && $scope.credentials.password === 'guest') {
+            $location.path('/account');
+        }
+    };
+}]);
+
+
+/**
+ * Home Ctrl
+ */
+app.controller('homeCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.logOut = function () {
+        $location.path = ('home');
+    };
+}]);
+
+
+/**
+ *  My account Ctrl
+ */
+app.controller('accountCtrl', ['$scope', function ($scope) {
+
+}]);
+
+/**
+ * Home Slider Ctrl
+ */
+app.controller('homeSliderCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.currentSliderIndex = 1;
+
+    $scope.images = [];
+
+    $http.get('app/views/sliders/home_slider.json').success(function (success) {
+        $scope.images = success;
+    });
+}]);
+
+
+/**
+ * Change language
+ */
+app.controller('changeLangCtrl', ['$translate', '$scope', function ($translate, $scope) {
+    $scope.currentLang = $translate.use();
+
+    $scope.changeLanguage = function (langKey) {
+        $translate.use(langKey);
+        $scope.currentLang = langKey;
+    };
+}]);
+
+/**
+* Created by v.stokolosa on 12/4/14.
+*/
+'use strict';
+
+app.directive('topBar', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'app/views/top-bar/top-menu.html'
+    };
+});
+
 /**
  * Created by v.stokolosa on 12/9/14.
  */
@@ -121,3 +253,48 @@ app.directive('wallopSlider', function () {
         }]
     };
 });
+
+/**
+ * Created by v.stokolosa on 12/10/14.
+ */
+'use strict';
+
+app.config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.translations('en_US', {
+        'PRICE': 'Price:',
+        'SIGN-IN': 'Sign-In',
+        'LOGIN': 'Login',
+        'PASSWORD': 'Password',
+        'WELCOME': 'Welcome',
+        'GUEST': 'Guest'
+    });
+
+    $translateProvider.translations('uk_UA', {
+        'PRICE': 'Ціна:',
+        'SIGN-IN': 'Увійти',
+        'LOGIN': 'Логін',
+        'PASSWORD': 'Пароль',
+        'WELCOME': 'Вітаємо',
+        'GUEST': 'Гостя'
+    });
+
+    $translateProvider.translations('de', {
+        'PRICE': 'Preis:',
+        'SIGN-IN': 'Mein Konto',
+        'LOGIN': 'Einloggen',
+        'PASSWORD': 'Passwort',
+        'WELCOME': 'Willkommen',
+        'GUEST': 'Gast'
+    });
+
+    $translateProvider.translations('fr', {
+        'PRICE': 'Prix:',
+        'SIGN-IN': 'Connexion',
+        'LOGIN': "S'identifier",
+        'PASSWORD': 'Mot de passe',
+        'WELCOME': 'Bienvenue',
+        'GUEST': 'Invité'
+    });
+
+    $translateProvider.determinePreferredLanguage();
+}]);

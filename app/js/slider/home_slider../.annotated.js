@@ -1,70 +1,12 @@
-'use strict';
-
-var app = angular.module('app', ['ngRoute']);
-
-app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.
-        when('/', {
-            templateUrl: 'app/views/home.html',
-            controller: 'homeCtrl'
-        }).
-        when('/mac', {
-            templateUrl: 'app/views/product/mac.html',
-            controller: 'macCtrl'
-        });
-}]);
-
-
-/**
- * Top Menu Ctrl
- */
-app.controller('topBarCtrl', function ($scope, $http) {
-    $http.get('app/views/top-bar/top-menu.json').success(function (data) {
-        $scope.menuName = data;
-    });
-
-    $scope.logoUrl = 'app/image/logo.jpg';
-});
-
-
-/**
- * Home Ctrl
- */
-app.controller('homeCtrl', function($scope) {
-    $scope.home = this;
-});
-
-
-/**
- * Home Slider Ctrl
- */
-app.controller('homeSliderCtrl', function($scope) {
-    $scope.currentSliderIndex = 1;
-
-    $scope.images = [
-        'app/image/home-slider/slider-1.jpg',
-        'app/image/home-slider/slider-2.jpg',
-        'app/image/home-slider/slider-3.jpg'
-    ];
-});
-
-/**
-* Created by v.stokolosa on 12/4/14.
-*/
-app.directive('topBar', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'app/views/top-bar/top-menu.html'
-    };
-});
-
 /**
  * Created by v.stokolosa on 12/9/14.
  */
+'use strict';
+
 app.directive('wallopSlider', function () {
     return {
         template: '<div class="wallop-slider {{animationClass}}"><ul class="wallop-slider__list">' +
-                  '<li class="wallop-slider__item {{itemClasses[$index]}}" ng-repeat="i in images"><img src="{{i}}"></li>' +
+                  '<li class="wallop-slider__item {{itemClasses[$index]}}" ng-repeat="i in images"><img ng-src="{{i.src}}" /><span class="slider-price">{{"PRICE" | translate}} {{i.price | currency}}</span></li>' +
                   '</ul>' +
                   '<a ng-show="images.length>1" class="wallop-slider__btn wallop-slider__btn--previous btn btn--previous" ng-disabled="prevDisabled" ng-click="onPrevButtonClicked()">' +
                   '<i class="arrow-left"></i></a>' +
@@ -75,12 +17,13 @@ app.directive('wallopSlider', function () {
         replace: false,
         scope: {
             images: '=',
+            prices: '=',
             animation: '@',
             currentItemIndex: '=',
             onNext: '&',
             onPrevious: '&'
         },
-        controller: function($scope, $timeout) {
+        controller: ['$scope', '$timeout', function($scope, $timeout) {
 
             $scope.itemClasses = [];
 
@@ -175,6 +118,6 @@ app.directive('wallopSlider', function () {
                 }
             });
 
-        }
+        }]
     };
 });
