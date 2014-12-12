@@ -55,6 +55,7 @@ module.exports = function (grunt) {
                     'app/js/services.js',
                     'app/js/controller.js',
                     'app/js/directive.js',
+                    'app/js/filter.js',
                     'app/js/slider/home_slider.js',
                     'app/js/locale/translations.js'
                 ],

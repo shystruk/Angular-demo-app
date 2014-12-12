@@ -40,7 +40,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 angular.module('topmenuServices', ['ngResource']).
     factory('Menu', ['$resource', function ($resource) {
         return $resource('app/views/top-bar/:topFile.json', {}, {
-            query: {method: 'GET', params: {topFile: 'top-menu'}, isArray: true}
+            query: {method: 'GET', params: {topFile: 'top-menu'}, isArray: true, cache: true}
         });
     }]).
     factory('MenuHTTP', ['$http', function ($http) {
@@ -168,6 +168,16 @@ app.directive('topBar', function () {
         restrict: 'E',
         templateUrl: 'app/views/top-bar/top-menu.html'
     };
+});
+
+/**
+ * Created by v.stokolosa on 12/12/14.
+ */
+'use strict';
+
+//encodeURI filter for URL
+app.filter('encodeURI', function () {
+    return window.encodeURI;
 });
 
 /**

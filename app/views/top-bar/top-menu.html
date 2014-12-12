@@ -11,7 +11,7 @@
     <div class="large-9 columns">
         <dl class="sub-nav">
             <dd ng-repeat="name in menuName">
-                <h5><a ng-href="#/{{name.id}}">{{name.name}}</a></h5>
+                <h5><a ng-href="#/{{name.id | encodeURI}}">{{name.name}}</a></h5>
             </dd>
         </dl>
         <a class="sign-in" ng-href="#/login"><i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}</a>
