@@ -21,6 +21,10 @@ app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location)
         password: ''
     };
 
+    $scope.$watch('credentials.login', function (newValue, oldValue) {
+        $scope.credentials.password = newValue;
+    });
+
     $scope.signIn = function () {
         if ($scope.credentials.login === 'guest' && $scope.credentials.password === 'guest') {
             $location.path('/account');

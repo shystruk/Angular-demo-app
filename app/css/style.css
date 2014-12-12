@@ -201,7 +201,7 @@ ul li, ol li {
     background-color: #ffffff;
 }
 .wallop-slider__btn .arrow-left {
-    background-image: url('../image/arrow-left.png');
+    background-image: url('../../image/grunt_file/arrow-left.png');
     display: block;
     width: 35px;
     height: 51px;
@@ -212,7 +212,7 @@ ul li, ol li {
     cursor: default;
 }
 .wallop-slider__btn .arrow-right {
-    background-image: url('../image/arrow-right.png');
+    background-image: url('../../image/grunt_file/arrow-right.png');
     display: block;
     width: 35px;
     height: 51px;

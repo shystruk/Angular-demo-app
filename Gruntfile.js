@@ -29,14 +29,23 @@ module.exports = function (grunt) {
 //        },
         cssmin: {
             css: {
-                files: [
-                    {
-                        src: [
-                            'app/css/*.css'
-                        ],
-                        dest: 'app/css/style.min.css'
-                    }
-                ]
+                src: 'app/css/*.css',
+                dest: 'app/css/grunt_file/style.min.css'
+            }
+        },
+        imagemin: {
+            static: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: {
+                    'app/image/grunt_file/arrow-left.png': 'app/image/arrow-left.png',
+                    'app/image/grunt_file/arrow-right.png': 'app/image/arrow-right.png',
+                    'app/image/grunt_file/flags/de.png': 'app/image/flags/de.png',
+                    'app/image/grunt_file/flags/en_US.png': 'app/image/flags/en_US.png',
+                    'app/image/grunt_file/flags/fr.png': 'app/image/flags/fr.png',
+                    'app/image/grunt_file/flags/uk_UA.png': 'app/image/flags/uk_UA.png'
+                }
             }
         },
         concat: {
@@ -86,6 +95,14 @@ module.exports = function (grunt) {
             concat: {
                 files: '<%= concat.main.src %>',
                 tasks: 'concat'
+            },
+            uglify: {
+                files: '<%= concat.main.src %>',
+                tasks: 'uglify'
+            },
+            cssmin: {
+                files: '<%= cssmin.css.src %>',
+                tasks: 'cssmin'
             }
         }
     });
@@ -96,7 +113,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     //default
-    grunt.registerTask('default', ['concat', 'uglify']);
+    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'cssmin']);
 };

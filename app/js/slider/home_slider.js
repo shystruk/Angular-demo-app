@@ -23,11 +23,11 @@ app.directive('wallopSlider', function () {
             onNext: '&',
             onPrevious: '&'
         },
-        controller: ['$scope', '$timeout', function($scope, $timeout) {
+        controller: ['$scope', '$timeout', function ($scope, $timeout) {
 
             $scope.itemClasses = [];
 
-            $scope.$watch('images', function(images) {
+            $scope.$watch('images', function (images) {
                 if (images.length) {
                     _goTo(0);
                 }
