@@ -1,5 +1,6 @@
 .idea
 node_modules/
+bower_components/
 #node_modules/grunt
 #node_modules/grunt-contrib-concat
 #node_modules/grunt-contrib-connect

@@ -1,0 +1,21 @@
+{
+  "name": "AngularJS-responsive-app",
+  "version": "1.1.1",
+  "homepage": "https://github.com/shystruk/Angular-responsive-app",
+  "authors": "Vasyl Stokolosa <wystruk@ukr.net>",
+  "description": "angularJS app",
+  "keywords": [
+    "angularJS",
+    "app"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.3.7"
+  }
+}

@@ -115,6 +115,7 @@ app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location)
         login: '',
         password: ''
     };
+    $scope.text = 'Hello World!';
 
     $scope.$watch('credentials.login', function (newValue, oldValue) {
         $scope.credentials.password = newValue;
