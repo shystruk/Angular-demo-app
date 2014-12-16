@@ -6,6 +6,6 @@
 app.directive('topBar', function () {
     return {
         restrict: 'E',
-        templateUrl: 'app/views/top-bar/top-menu.html'
+        templateUrl: 'app/modules/home/top_menu/top_menu.html'
     };
 });

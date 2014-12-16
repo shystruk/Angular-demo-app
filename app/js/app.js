@@ -5,25 +5,26 @@ var app = angular.module('app', [
     'ngResource',
     'ngCookies',
     'pascalprecht.translate',
-    'topmenuServices'
+    'topMenuService',
+    'homeSliderService'
 ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'app/views/home.html',
+            templateUrl: 'app/modules/home/home.html',
             controller: 'homeCtrl'
         }).
         when('/mac', {
-            templateUrl: 'app/views/product/mac.html',
+            templateUrl: 'app/modules/product/mac.html',
             controller: 'macCtrl'
         }).
         when('/login', {
-            templateUrl: 'app/views/top-bar/login.html',
+            templateUrl: 'app/modules/home/login/login.html',
             controller: 'loginCtrl'
         }).
         when('/account', {
-            templateUrl: 'app/views/account/my_account.html',
+            templateUrl: 'app/modules/account/my_account.html',
             controller: 'accountCtrl'
         }).
         otherwise({

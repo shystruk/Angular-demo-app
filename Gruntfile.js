@@ -52,22 +52,27 @@ module.exports = function (grunt) {
             main: {
                 src: [
                     'app/js/app.js',
-                    'app/js/services.js',
-                    'app/js/controller.js',
-                    'app/js/directive.js',
                     'app/js/filter.js',
-                    'app/js/slider/home_slider.js',
-                    'app/js/locale/translations.js'
+                    'app/js/locale/translations.js',
+                    'app/modules/account/accountController.js',
+                    'app/modules/home/homeController.js',
+                    'app/modules/home/login/loginController.js',
+                    'app/modules/home/top_menu/topMenuController.js',
+                    'app/modules/home/top_menu/topMenuDirective.js',
+                    'app/modules/home/top_menu/topMenuService.js',
+                    'app/modules/home_slider/homeSliderController.js',
+                    'app/modules/home_slider/homeSliderDirective.js',
+                    'app/modules/home_slider/homeSliderService.js'
                 ],
                 dest: 'app/js/grunt_files/app.js'
             },
             extras: {
                 src: [
                     'node_modules/angular/angular.min.js',
-                    'node_modules/angular/angular-cookies.min.js',
-                    'node_modules/angular/angular-resource.min.js',
-                    'node_modules/angular/angular-route.min.js',
-                    'node_modules/angular/angular-translate.min.js'
+                    'node_modules/angular-cookies/angular-cookies.min.js',
+                    'node_modules/angular-resource/angular-resource.min.js',
+                    'node_modules/angular-route/angular-route.min.js',
+                    'node_modules/angular-translate/dist/angular-translate.min.js'
                 ],
                 dest: 'app/js/grunt_files/angular.js'
             },

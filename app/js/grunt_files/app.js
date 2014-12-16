@@ -5,25 +5,26 @@ var app = angular.module('app', [
     'ngResource',
     'ngCookies',
     'pascalprecht.translate',
-    'topmenuServices'
+    'topMenuService',
+    'homeSliderService'
 ]);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'app/views/home.html',
+            templateUrl: 'app/modules/home/home.html',
             controller: 'homeCtrl'
         }).
         when('/mac', {
-            templateUrl: 'app/views/product/mac.html',
+            templateUrl: 'app/modules/product/mac.html',
             controller: 'macCtrl'
         }).
         when('/login', {
-            templateUrl: 'app/views/top-bar/login.html',
+            templateUrl: 'app/modules/home/login/login.html',
             controller: 'loginCtrl'
         }).
         when('/account', {
-            templateUrl: 'app/views/account/my_account.html',
+            templateUrl: 'app/modules/account/my_account.html',
             controller: 'accountCtrl'
         }).
         otherwise({
@@ -33,71 +34,81 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 
 /**
+ * Created by v.stokolosa on 12/12/14.
+ */
+'use strict';
+
+//encodeURI filter for URL
+app.filter('encodeURI', function () {
+    return window.encodeURI;
+});
+
+/**
  * Created by v.stokolosa on 12/10/14.
  */
 'use strict';
 
-angular.module('topmenuServices', ['ngResource']).
-    factory('Menu', ['$resource', function ($resource) {
-        return $resource('app/views/top-bar/:topFile.json', {}, {
-            query: {method: 'GET', params: {topFile: 'top-menu'}, isArray: true, cache: true}
-        });
-    }]).
-    factory('MenuHTTP', ['$http', function ($http) {
-        //cached request
-        function getRequest(callback) {
-            $http({
-                method: 'GET',
-                url: 'app/views/top-bar/top-menu.json',
-                cache: true
-            }).success(callback);
-        }
-        return {
-            names: getRequest
-        };
-    }]).
-    factory('HomeSlider', ['$http', function ($http) {
-        //cached request
-        function getRequest(callback) {
-            $http({
-                method: 'GET',
-                url: 'app/views/sliders/home_slider.json',
-                cache: true
-            }).success(callback);
-        }
-        return {
-            image: getRequest
-        };
-    }]);
-
-'use strict';
-
-/**
- * Top Menu Ctrl
- */
-//====== RESTful functionality ===============
-//app.controller('topBarCtrl', ['$scope', 'Menu', function ($scope, Menu) {
-//    $scope.menuName = [];
-//
-//    $scope.menuName = Menu.query();
-//
-//    $scope.logoUrl = 'app/image/logo.jpg';
-//}]);
-//============== http request ===========
-app.controller('topBarCtrl', ['$scope', 'MenuHTTP', function ($scope, MenuHTTP) {
-    $scope.logoUrl = 'app/image/logo.jpg';
-
-    $scope.menuName = [];
-
-    MenuHTTP.names(function (data) {
-        $scope.menuName = data;
+app.config(['$translateProvider', function ($translateProvider) {
+    $translateProvider.translations('en_US', {
+        'PRICE': 'Price:',
+        'SIGN-IN': 'Sign-In',
+        'LOGIN': 'Login',
+        'PASSWORD': 'Password',
+        'WELCOME': 'Welcome',
+        'GUEST': 'Guest'
     });
+
+    $translateProvider.translations('uk_UA', {
+        'PRICE': 'Ціна:',
+        'SIGN-IN': 'Увійти',
+        'LOGIN': 'Логін',
+        'PASSWORD': 'Пароль',
+        'WELCOME': 'Вітаємо',
+        'GUEST': 'Гостя'
+    });
+
+    $translateProvider.translations('de', {
+        'PRICE': 'Preis:',
+        'SIGN-IN': 'Mein Konto',
+        'LOGIN': 'Einloggen',
+        'PASSWORD': 'Passwort',
+        'WELCOME': 'Willkommen',
+        'GUEST': 'Gast'
+    });
+
+    $translateProvider.translations('fr', {
+        'PRICE': 'Prix:',
+        'SIGN-IN': 'Connexion',
+        'LOGIN': "S'identifier",
+        'PASSWORD': 'Mot de passe',
+        'WELCOME': 'Bienvenue',
+        'GUEST': 'Invité'
+    });
+
+    $translateProvider.determinePreferredLanguage();
 }]);
 
+/**
+ * Created by v.stokolosa on 12/16/14.
+ */
+'use strict';
 
+app.controller('accountCtrl', ['$scope', function ($scope) {
+
+}]);
 
 /**
- * Login Ctrl
+ * Created by v.stokolosa on 12/16/14.
+ */
+'use strict';
+
+app.controller('homeCtrl', ['$scope', '$location', function ($scope, $location) {
+    $scope.logOut = function () {
+        $location.path = ('home');
+    };
+}]);
+/**
+ * Created by v.stokolosa on 12/16/14.
  */
 app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.credentials = {
@@ -116,32 +127,27 @@ app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location)
     };
 }]);
 
-
 /**
- * Home Ctrl
+ * Created by v.stokolosa on 12/16/14.
  */
-app.controller('homeCtrl', ['$scope', '$location', function ($scope, $location) {
-    $scope.logOut = function () {
-        $location.path = ('home');
-    };
-}]);
+'use strict';
 
+//====== RESTful functionality ===============
+//app.controller('topBarCtrl', ['$scope', 'Menu', function ($scope, Menu) {
+//    $scope.menuName = [];
+//
+//    $scope.menuName = Menu.query();
+//
+//    $scope.logoUrl = 'app/image/logo.jpg';
+//}]);
+//============== http request ===========
+app.controller('topBarCtrl', ['$scope', 'MenuHTTP', function ($scope, MenuHTTP) {
+    $scope.logoUrl = 'app/image/logo.jpg';
 
-/**
- *  My account Ctrl
- */
-app.controller('accountCtrl', ['$scope', function ($scope) {
+    $scope.menuName = [];
 
-}]);
-
-/**
- * Home Slider Ctrl
- */
-app.controller('homeSliderCtrl', ['$scope', 'HomeSlider', function ($scope, HomeSlider) {
-    $scope.images = [];
-
-    HomeSlider.image(function (data) {
-        $scope.images = data;
+    MenuHTTP.names(function (data) {
+        $scope.menuName = data;
     });
 }]);
 
@@ -166,20 +172,48 @@ app.controller('changeLangCtrl', ['$translate', '$scope', function ($translate, 
 app.directive('topBar', function () {
     return {
         restrict: 'E',
-        templateUrl: 'app/views/top-bar/top-menu.html'
+        templateUrl: 'app/modules/home/top_menu/top_menu.html'
     };
 });
 
 /**
- * Created by v.stokolosa on 12/12/14.
+ * Created by v.stokolosa on 12/10/14.
  */
 'use strict';
 
-//encodeURI filter for URL
-app.filter('encodeURI', function () {
-    return window.encodeURI;
-});
+angular.module('topMenuService', ['ngResource']).
+    factory('Menu', ['$resource', function ($resource) {
+        return $resource('app/modules/home/top_menu/:topFile.json', {}, {
+            query: {method: 'GET', params: {topFile: 'top_menu'}, isArray: true, cache: true}
+        });
+    }]).
+    factory('MenuHTTP', ['$http', function ($http) {
+        //cached request
+        function getRequest(callback) {
+            $http({
+                method: 'GET',
+                url: 'app/modules/home/top_menu/top_menu.json',
+                cache: true
+            }).success(callback);
+        }
+        return {
+            names: getRequest
+        };
+    }]);
 
+
+/**
+ * Created by v.stokolosa on 12/16/14.
+ */
+'use strict';
+
+app.controller('homeSliderCtrl', ['$scope', 'HomeSlider', function ($scope, HomeSlider) {
+    $scope.images = [];
+
+    HomeSlider.image(function (data) {
+        $scope.images = data;
+    });
+}]);
 /**
  * Created by v.stokolosa on 12/9/14.
  */
@@ -305,46 +339,21 @@ app.directive('wallopSlider', function () {
 });
 
 /**
- * Created by v.stokolosa on 12/10/14.
+ * Created by v.stokolosa on 12/16/14.
  */
 'use strict';
 
-app.config(['$translateProvider', function ($translateProvider) {
-    $translateProvider.translations('en_US', {
-        'PRICE': 'Price:',
-        'SIGN-IN': 'Sign-In',
-        'LOGIN': 'Login',
-        'PASSWORD': 'Password',
-        'WELCOME': 'Welcome',
-        'GUEST': 'Guest'
-    });
-
-    $translateProvider.translations('uk_UA', {
-        'PRICE': 'Ціна:',
-        'SIGN-IN': 'Увійти',
-        'LOGIN': 'Логін',
-        'PASSWORD': 'Пароль',
-        'WELCOME': 'Вітаємо',
-        'GUEST': 'Гостя'
-    });
-
-    $translateProvider.translations('de', {
-        'PRICE': 'Preis:',
-        'SIGN-IN': 'Mein Konto',
-        'LOGIN': 'Einloggen',
-        'PASSWORD': 'Passwort',
-        'WELCOME': 'Willkommen',
-        'GUEST': 'Gast'
-    });
-
-    $translateProvider.translations('fr', {
-        'PRICE': 'Prix:',
-        'SIGN-IN': 'Connexion',
-        'LOGIN': "S'identifier",
-        'PASSWORD': 'Mot de passe',
-        'WELCOME': 'Bienvenue',
-        'GUEST': 'Invité'
-    });
-
-    $translateProvider.determinePreferredLanguage();
-}]);
+angular.module('homeSliderService', ['ngResource']).
+    factory('HomeSlider', ['$http', function ($http) {
+        //cached request
+        function getRequest(callback) {
+            $http({
+                method: 'GET',
+                url: 'app/modules/home_slider/home_slider.json',
+                cache: true
+            }).success(callback);
+        }
+        return {
+            image: getRequest
+        };
+    }]);
