@@ -36,6 +36,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 }]);
 
+//method to register work which should be performed when the injector is done loading all modules
 app.run(['$location', '$rootScope', function ($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.title = current.$$route.title;

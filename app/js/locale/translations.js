@@ -41,4 +41,5 @@ app.config(['$translateProvider', function ($translateProvider) {
     });
 
     $translateProvider.determinePreferredLanguage();
+    $translateProvider.useLocalStorage();
 }]);

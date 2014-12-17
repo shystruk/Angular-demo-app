@@ -4,29 +4,6 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-//        ngAnnotate: {
-//            options: {
-//                singleQuotes: true,
-//                remove: true
-//            },
-//            app: {
-//                files: [
-//                    {
-//                        expand: true,
-//                        src: [
-//                            'app/js/app.js',
-//                            'app/js/services.js',
-//                            'app/js/controller.js',
-//                            'app/js/directive.js',
-//                            'app/js/slider/home_slider.js',
-//                            'app/js/locale/translations.js'
-//                        ],
-//                        ext: 'grunt_files/.annotated.js',
-//                        extDot: 'last'
-//                    }
-//                ]
-//            }
-//        },
         cssmin: {
             css: {
                 src: 'app/css/*.css',
@@ -72,20 +49,11 @@ module.exports = function (grunt) {
                     'node_modules/angular-cookies/angular-cookies.min.js',
                     'node_modules/angular-resource/angular-resource.min.js',
                     'node_modules/angular-route/angular-route.min.js',
-                    'node_modules/angular-translate/dist/angular-translate.min.js'
+                    'node_modules/angular-translate/dist/angular-translate.min.js',
+                    'bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js',
+                    'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js'
                 ],
                 dest: 'app/public/js/angular.js'
-            },
-            angular: {
-                src: [
-                    'app/js/app.annotated.js',
-                    'app/js/controller.annotated.js',
-                    'app/js/services.annotated.js',
-                    'app/js/directive.annotated.js',
-                    'app/js/locale/translations.annotated.js',
-                    'app/js/slider/home_slider.annotated.js'
-                ],
-                dest: 'app/public/js/angular.annotated.js'
             }
         },
         uglify: {
@@ -93,23 +61,11 @@ module.exports = function (grunt) {
                 files: {
                     'app/public/js/app.min.js': '<%= concat.main.dest %>',
                     'app/public/js/angular.min.js': '<%= concat.extras.dest %>'
-//                    'app/js/grunt_files/angular.annotated.min.js': '<%= concat.angular.dest %>'
                 }
             }
         },
         karma: {
             unit: {
-//                options: {
-//                    frameworks: ['jasmine'],
-//                    singleRun: true,
-//                    browsers: ['Firefox'],
-//                    files: [
-//                        'app/public/js/angular.min.js',
-//                        'bower_components/angular-mocks/angular-mocks.js',
-//                        'app/public/js/app.min.js',
-//                        'test/spec/**/*.js'
-//                    ]
-//                }
                 configFile: 'karma.config.js'
             }
         },
@@ -137,6 +93,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-karma');
+
+    //without karma, cssmin, imagemin
+    grunt.registerTask('test', ['concat', 'uglify']);
 
     //default
     grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'cssmin', 'karma']);
