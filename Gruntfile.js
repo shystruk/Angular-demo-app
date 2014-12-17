@@ -45,11 +45,11 @@ module.exports = function (grunt) {
             },
             extras: {
                 src: [
-                    'node_modules/angular/angular.min.js',
-                    'node_modules/angular-cookies/angular-cookies.min.js',
-                    'node_modules/angular-resource/angular-resource.min.js',
-                    'node_modules/angular-route/angular-route.min.js',
-                    'node_modules/angular-translate/dist/angular-translate.min.js',
+                    'bower_components/angular/angular.min.js',
+                    'bower_components/angular-cookies/angular-cookies.min.js',
+                    'bower_components/angular-resource/angular-resource.min.js',
+                    'bower_components/angular-route/angular-route.min.js',
+                    'bower_components/angular-translate/angular-translate.min.js',
                     'bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js',
                     'bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js'
                 ],
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
 
     //without karma, cssmin, imagemin
-    grunt.registerTask('test', ['concat', 'uglify']);
+    grunt.registerTask('test', ['concat', 'uglify', 'imagemin', 'cssmin']);
 
     //default
     grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'cssmin', 'karma']);
