@@ -18,8 +18,8 @@
     "grunt-ng-annotate": "^0.8.0",
     "grunt-karma": "~0.9.0",
     "karma-jasmine": "~0.3.2",
-    "karma-firefox-launcher": "~0.1.3",
     "karma-htmlfile-reporter": "~0.1.2",
-    "karma-ng-html2js-preprocessor": "~0.1.2"
+    "karma-ng-html2js-preprocessor": "~0.1.2",
+    "karma-chrome-launcher": "~0.1.7"
   }
 }
