@@ -21,16 +21,3 @@ app.controller('topBarCtrl', ['$scope', 'MenuHTTP', function ($scope, MenuHTTP) 
         $scope.menuName = data;
     });
 }]);
-
-
-/**
- * Change language
- */
-app.controller('changeLangCtrl', ['$translate', '$scope', function ($translate, $scope) {
-    $scope.currentLang = $translate.use();
-
-    $scope.changeLanguage = function (langKey) {
-        $translate.use(langKey);
-        $scope.currentLang = langKey;
-    };
-}]);

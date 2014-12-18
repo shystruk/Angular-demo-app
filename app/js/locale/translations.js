@@ -19,7 +19,13 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': 'Логін',
         'PASSWORD': 'Пароль',
         'WELCOME': 'Вітаємо',
-        'GUEST': 'Гостя'
+        'GUEST': 'Гостя',
+        'TITLE': {
+            'V.S.12 | Home': 'V.S.12 | Головна',
+            'MacBook': 'МакБук',
+            'Login': 'Вхід',
+            'MyAccount': 'Мій Кабінет'
+        }
     });
 
     $translateProvider.translations('de', {
@@ -28,7 +34,13 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': 'Einloggen',
         'PASSWORD': 'Passwort',
         'WELCOME': 'Willkommen',
-        'GUEST': 'Gast'
+        'GUEST': 'Gast',
+        'TITLE': {
+            'V.S.12 | Home': 'V.S.12 | Zuhause',
+            'MacBook': 'MacBook',
+            'Login': 'Einloggen',
+            'MyAccount': 'Mein Konto'
+        }
     });
 
     $translateProvider.translations('fr', {
@@ -37,7 +49,13 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': "S'identifier",
         'PASSWORD': 'Mot de passe',
         'WELCOME': 'Bienvenue',
-        'GUEST': 'Invité'
+        'GUEST': 'Invité',
+        'TITLE': {
+            'V.S.12 | Home': 'V.S.12 | Accueil',
+            'MacBook': 'МакБук',
+            'Login': 'S"identifier',
+            'MyAccount': 'Mon Compte'
+        }
     });
 
     $translateProvider.determinePreferredLanguage();

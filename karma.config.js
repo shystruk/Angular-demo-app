@@ -11,6 +11,14 @@ module.exports = function (config) {
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['jasmine'],
 
+        //plugins
+        plugins : [
+            'karma-chrome-launcher',
+            'karma-jasmine',
+            'karma-htmlfile-reporter',
+            'karma-ng-html2js-preprocessor'
+        ],
+
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {

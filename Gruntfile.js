@@ -31,6 +31,7 @@ module.exports = function (grunt) {
                     'app/js/app.js',
                     'app/js/filter.js',
                     'app/js/locale/translations.js',
+                    'app/js/locale/translateController.js',
                     'app/modules/account/accountController.js',
                     'app/modules/home/homeController.js',
                     'app/modules/home/login/loginController.js',
@@ -69,6 +70,13 @@ module.exports = function (grunt) {
                 configFile: 'karma.config.js'
             }
         },
+        protractor: {
+            options: {
+                configFile: 'protractor.config.js',
+                keepAlive: true,
+                noColor: false
+            }
+        },
         watch: {
             concat: {
                 files: '<%= concat.main.src %>',
@@ -93,6 +101,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-protractor-runner');
 
     //without karma, cssmin, imagemin
     grunt.registerTask('test', ['concat', 'uglify', 'imagemin', 'cssmin']);

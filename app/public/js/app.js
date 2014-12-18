@@ -37,9 +37,13 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 //method to register work which should be performed when the injector is done loading all modules
-app.run(['$location', '$rootScope', function ($location, $rootScope) {
+app.run(['$location', '$rootScope', '$translate', function ($location, $rootScope, $translate) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.title = current.$$route.title;
+
+        $translate('TITLE.' + $rootScope.title).then(function (title) {
+            $rootScope.title = title;
+        });
     });
 }]);
 
@@ -74,7 +78,13 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': 'Логін',
         'PASSWORD': 'Пароль',
         'WELCOME': 'Вітаємо',
-        'GUEST': 'Гостя'
+        'GUEST': 'Гостя',
+        'TITLE': {
+            'V.S.12 | Home': 'V.S.12 | Головна',
+            'MacBook': 'МакБук',
+            'Login': 'Вхід',
+            'MyAccount': 'Мій Кабінет'
+        }
     });
 
     $translateProvider.translations('de', {
@@ -83,7 +93,13 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': 'Einloggen',
         'PASSWORD': 'Passwort',
         'WELCOME': 'Willkommen',
-        'GUEST': 'Gast'
+        'GUEST': 'Gast',
+        'TITLE': {
+            'V.S.12 | Home': 'V.S.12 | Zuhause',
+            'MacBook': 'MacBook',
+            'Login': 'Einloggen',
+            'MyAccount': 'Mein Konto'
+        }
     });
 
     $translateProvider.translations('fr', {
@@ -92,11 +108,32 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': "S'identifier",
         'PASSWORD': 'Mot de passe',
         'WELCOME': 'Bienvenue',
-        'GUEST': 'Invité'
+        'GUEST': 'Invité',
+        'TITLE': {
+            'V.S.12 | Home': 'V.S.12 | Accueil',
+            'MacBook': 'МакБук',
+            'Login': 'S"identifier',
+            'MyAccount': 'Mon Compte'
+        }
     });
 
     $translateProvider.determinePreferredLanguage();
     $translateProvider.useLocalStorage();
+}]);
+
+/**
+ * Created by v.stokolosa on 12/18/14.
+ */
+/**
+ * Change language
+ */
+app.controller('changeLangCtrl', ['$translate', '$scope', function ($translate, $scope) {
+    $scope.currentLang = $translate.use();
+
+    $scope.changeLanguage = function (langKey) {
+        $translate.use(langKey);
+        $scope.currentLang = langKey;
+    };
 }]);
 
 /**
@@ -162,19 +199,6 @@ app.controller('topBarCtrl', ['$scope', 'MenuHTTP', function ($scope, MenuHTTP) 
     MenuHTTP.names(function (data) {
         $scope.menuName = data;
     });
-}]);
-
-
-/**
- * Change language
- */
-app.controller('changeLangCtrl', ['$translate', '$scope', function ($translate, $scope) {
-    $scope.currentLang = $translate.use();
-
-    $scope.changeLanguage = function (langKey) {
-        $translate.use(langKey);
-        $scope.currentLang = langKey;
-    };
 }]);
 
 /**

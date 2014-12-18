@@ -1,0 +1,196 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'protractor' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.21
+4 verbose cache add [ 'protractor', null ]
+5 verbose cache add name=undefined spec="protractor" args=["protractor",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'protractor',
+6 verbose parsed url   path: 'protractor',
+6 verbose parsed url   href: 'protractor' }
+7 silly lockFile 4f4f4858-protractor protractor
+8 verbose lock protractor C:\Users\v.stokolosa\AppData\Roaming\npm-cache\4f4f4858-protractor.lock
+9 silly lockFile 4f4f4858-protractor protractor
+10 silly lockFile 4f4f4858-protractor protractor
+11 verbose addNamed [ 'protractor', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 80d5ca5a-protractor protractor@
+14 verbose lock protractor@ C:\Users\v.stokolosa\AppData\Roaming\npm-cache\80d5ca5a-protractor.lock
+15 silly addNameRange { name: 'protractor', range: '*', hasData: false }
+16 verbose url raw protractor
+17 verbose url resolving [ 'https://registry.npmjs.org/', './protractor' ]
+18 verbose url resolved https://registry.npmjs.org/protractor
+19 info trying registry request attempt 1 at 17:33:55
+20 verbose etag "CMAOZYVKJ4KL8EW4RKV5OLBRY"
+21 http GET https://registry.npmjs.org/protractor
+22 http 304 https://registry.npmjs.org/protractor
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Thu, 18 Dec 2014 15:33:55 GMT',
+23 silly registry.get     server: 'Apache',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'last-modified': 'Thu, 18 Dec 2014 15:33:55 GMT',
+23 silly registry.get     'cache-control': 'max-age=60',
+23 silly registry.get     etag: '"CMAOZYVKJ4KL8EW4RKV5OLBRY"',
+23 silly registry.get     age: '6',
+23 silly registry.get     'x-served-by': 'cache-ams4141-AMS',
+23 silly registry.get     'x-cache': 'HIT',
+23 silly registry.get     'x-cache-hits': '1',
+23 silly registry.get     'x-timer': 'S1418916835.913335,VS0,VE0',
+23 silly registry.get     vary: 'Accept',
+23 silly registry.get     'content-length': '0',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 verbose etag protractor from cache
+25 silly addNameRange number 2 { name: 'protractor', range: '*', hasData: true }
+26 silly addNameRange versions [ 'protractor',
+26 silly addNameRange   [ '0.1.0',
+26 silly addNameRange     '0.1.1',
+26 silly addNameRange     '0.1.2',
+26 silly addNameRange     '0.1.3',
+26 silly addNameRange     '0.2.0',
+26 silly addNameRange     '0.2.1',
+26 silly addNameRange     '0.3.0',
+26 silly addNameRange     '0.4.0',
+26 silly addNameRange     '0.4.1',
+26 silly addNameRange     '0.5.0',
+26 silly addNameRange     '0.6.1',
+26 silly addNameRange     '0.7.0',
+26 silly addNameRange     '0.8.0',
+26 silly addNameRange     '0.9.0',
+26 silly addNameRange     '0.10.0',
+26 silly addNameRange     '0.11.0',
+26 silly addNameRange     '0.12.0',
+26 silly addNameRange     '0.12.1',
+26 silly addNameRange     '0.13.0',
+26 silly addNameRange     '0.14.0',
+26 silly addNameRange     '0.15.0',
+26 silly addNameRange     '0.16.0',
+26 silly addNameRange     '0.16.1',
+26 silly addNameRange     '0.17.0',
+26 silly addNameRange     '0.18.0',
+26 silly addNameRange     '0.18.1',
+26 silly addNameRange     '0.19.0',
+26 silly addNameRange     '0.20.0',
+26 silly addNameRange     '0.20.1',
+26 silly addNameRange     '0.21.0',
+26 silly addNameRange     '0.22.0',
+26 silly addNameRange     '0.23.0',
+26 silly addNameRange     '0.23.1',
+26 silly addNameRange     '0.24.0',
+26 silly addNameRange     '0.24.1',
+26 silly addNameRange     '0.24.2',
+26 silly addNameRange     '1.0.0-rc1',
+26 silly addNameRange     '1.0.0-rc2',
+26 silly addNameRange     '1.0.0-rc3',
+26 silly addNameRange     '1.0.0-rc4',
+26 silly addNameRange     '1.0.0-rc5',
+26 silly addNameRange     '1.0.0-rc6',
+26 silly addNameRange     '1.0.0',
+26 silly addNameRange     '1.1.0',
+26 silly addNameRange     '1.1.1',
+26 silly addNameRange     '1.2.0-beta1',
+26 silly addNameRange     '1.2.0',
+26 silly addNameRange     '1.3.0',
+26 silly addNameRange     '1.3.1',
+26 silly addNameRange     '1.4.0',
+26 silly addNameRange     '1.5.0' ] ]
+27 verbose addNamed [ 'protractor', '1.5.0' ]
+28 verbose addNamed [ '1.5.0', '1.5.0' ]
+29 silly lockFile b10520a5-protractor-1-5-0 protractor@1.5.0
+30 verbose lock protractor@1.5.0 C:\Users\v.stokolosa\AppData\Roaming\npm-cache\b10520a5-protractor-1-5-0.lock
+31 silly lockFile b10520a5-protractor-1-5-0 protractor@1.5.0
+32 silly lockFile b10520a5-protractor-1-5-0 protractor@1.5.0
+33 silly lockFile 80d5ca5a-protractor protractor@
+34 silly lockFile 80d5ca5a-protractor protractor@
+35 silly resolved [ { name: 'protractor',
+35 silly resolved     description: 'Webdriver E2E test wrapper for Angular.',
+35 silly resolved     homepage: 'https://github.com/angular/protractor',
+35 silly resolved     keywords:
+35 silly resolved      [ 'angular',
+35 silly resolved        'test',
+35 silly resolved        'testing',
+35 silly resolved        'webdriver',
+35 silly resolved        'webdriverjs',
+35 silly resolved        'selenium' ],
+35 silly resolved     author: { name: 'Julie Ralph', email: 'ju.ralph@gmail.com' },
+35 silly resolved     dependencies:
+35 silly resolved      { request: '~2.36.0',
+35 silly resolved        'selenium-webdriver': '2.44.0',
+35 silly resolved        minijasminenode: '1.1.1',
+35 silly resolved        jasminewd: '1.1.0',
+35 silly resolved        saucelabs: '~0.1.0',
+35 silly resolved        glob: '~3.2',
+35 silly resolved        'adm-zip': '0.4.4',
+35 silly resolved        optimist: '~0.6.0',
+35 silly resolved        q: '1.0.0',
+35 silly resolved        lodash: '~2.4.1',
+35 silly resolved        'source-map-support': '~0.2.6' },
+35 silly resolved     devDependencies:
+35 silly resolved      { 'expect.js': '~0.2.0',
+35 silly resolved        chai: '~1.8.1',
+35 silly resolved        'chai-as-promised': '~4.1.0',
+35 silly resolved        'jasmine-reporters': '~0.2.1',
+35 silly resolved        jshint: '2.5.0',
+35 silly resolved        mocha: '1.21.4',
+35 silly resolved        cucumber: '~0.3.3',
+35 silly resolved        express: '~3.3.4',
+35 silly resolved        lodash: '~2.4.1',
+35 silly resolved        rimraf: '~2.2.6' },
+35 silly resolved     repository: { type: 'git', url: 'git://github.com/angular/protractor.git' },
+35 silly resolved     bin:
+35 silly resolved      { protractor: 'bin/protractor',
+35 silly resolved        'webdriver-manager': 'bin/webdriver-manager' },
+35 silly resolved     main: 'lib/protractor.js',
+35 silly resolved     scripts:
+35 silly resolved      { pretest: 'node_modules/.bin/jshint lib spec scripts',
+35 silly resolved        test: 'scripts/test.js',
+35 silly resolved        start: 'testapp/scripts/web-server.js' },
+35 silly resolved     license: 'MIT',
+35 silly resolved     version: '1.5.0',
+35 silly resolved     readme: 'Protractor [![Build Status](https://travis-ci.org/angular/protractor.png?branch=master)](https://travis-ci.org/angular/protractor)\n==========\n\n[Protractor](http://angular.github.io/protractor) is an end-to-end test framework for [AngularJS](http://angularjs.org/) applications. Protractor is a [Node.js](http://nodejs.org/) program built on top of [WebDriverJS](https://code.google.com/p/selenium/wiki/WebDriverJs). Protractor runs tests against your application running in a real browser, interacting with it as a user would. \n\n\nGetting Started\n---------------\n\nThe Protractor documentation for users is located in the [protractor/docs](https://github.com/angular/protractor/tree/master/docs) folder.\n\nTo get set up and running  quickly:\n - The [Protractor Website](http://angular.github.io/protractor)\n - Work through the [Tutorial](http://angular.github.io/protractor/#/tutorial)\n - Take a look at the [Table of Contents](http://angular.github.io/protractor/#/toc)\n\nOnce you are familiar with the tutorial, you’re ready to move on. To modify your environment, see the Protractor Setup docs. To start writing tests, see the Protractor Tests docs.\n\nTo better understand how Protractor works with the Selenium WebDriver and Selenium Sever see the reference materials.\n\n\nFor Contributors\n----------------\nClone the github repository:\n\n    git clone https://github.com/angular/protractor.git\n    cd protractor\n    npm install\n\nStart up a selenium server. By default, the tests expect the selenium server to be running at `http://localhost:4444/wd/hub`.\n\nProtractor\'s test suite runs against the included test application. Start that up with\n\n    npm start\n\nThen run the tests with\n\n    npm test\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     bugs: { url: 'https://github.com/angular/protractor/issues' },
+35 silly resolved     _id: 'protractor@1.5.0',
+35 silly resolved     _from: 'protractor@' } ]
+36 info install protractor@1.5.0 into C:\Users\v.stokolosa\AppData\Roaming\npm
+37 info installOne protractor@1.5.0
+38 info C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor unbuild
+39 info preuninstall protractor@1.5.0
+40 info uninstall protractor@1.5.0
+41 verbose true,C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules,C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules unbuild protractor@1.5.0
+42 verbose C:\Users\v.stokolosa\AppData\Roaming\npm,[object Object] binRoot
+43 info postuninstall protractor@1.5.0
+44 info C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor unbuild
+45 error error rolling back Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
+45 error error rolling back  protractor@1.5.0 { [Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe']
+45 error error rolling back   errno: 50,
+45 error error rolling back   code: 'EPERM',
+45 error error rolling back   path: 'C:\\Users\\v.stokolosa\\AppData\\Roaming\\npm\\node_modules\\protractor\\selenium\\chromedriver.exe' }
+46 error Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
+46 error  { [Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe']
+46 error   errno: 50,
+46 error   code: 'EPERM',
+46 error   path: 'C:\\Users\\v.stokolosa\\AppData\\Roaming\\npm\\node_modules\\protractor\\selenium\\chromedriver.exe' }
+47 error Please try running this command again as root/Administrator.
+48 error System Windows_NT 6.1.7601
+49 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "protractor"
+50 error cwd d:\MY\projects\Angular-responsive-app
+51 error node -v v0.10.21
+52 error npm -v 1.3.11
+53 error path C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe
+54 error code EPERM
+55 error errno 50
+56 error stack Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
+57 verbose exit [ 50, true ]
