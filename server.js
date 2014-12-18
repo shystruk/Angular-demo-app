@@ -5,8 +5,6 @@ var http = require("http"),
     fs = require("fs")
 port = process.argv[2] || 8888;
 
-var protractor = require("protractor");
-
 http.createServer(function(request, response) {
 
     var uri = url.parse(request.url).pathname, filename = path.join(process.cwd(), uri);

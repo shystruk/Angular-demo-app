@@ -101,7 +101,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-protractor-runner');
 
     //without karma, cssmin, imagemin
     grunt.registerTask('test', ['concat', 'uglify', 'imagemin', 'cssmin']);

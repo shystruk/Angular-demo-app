@@ -1,12 +1,4 @@
 .idea
 node_modules/
 bower_components/
-#node_modules/grunt
-#node_modules/grunt-contrib-concat
-#node_modules/grunt-contrib-connect
-#node_modules/grunt-contrib-uglify
-#node_modules/grunt-contrib-watch
-#node_modules/grunt-contrib-cssmin
-#node_modules/grunt-contrib-imagemin
-#node_modules/grunt-ng-annotate
-#node_modules/angular-i18n
+npm-debug.log

@@ -32,22 +32,22 @@
 16 verbose url raw protractor
 17 verbose url resolving [ 'https://registry.npmjs.org/', './protractor' ]
 18 verbose url resolved https://registry.npmjs.org/protractor
-19 info trying registry request attempt 1 at 17:33:55
+19 info trying registry request attempt 1 at 19:56:08
 20 verbose etag "CMAOZYVKJ4KL8EW4RKV5OLBRY"
 21 http GET https://registry.npmjs.org/protractor
 22 http 304 https://registry.npmjs.org/protractor
 23 silly registry.get cb [ 304,
-23 silly registry.get   { date: 'Thu, 18 Dec 2014 15:33:55 GMT',
+23 silly registry.get   { date: 'Thu, 18 Dec 2014 17:56:08 GMT',
 23 silly registry.get     server: 'Apache',
 23 silly registry.get     via: '1.1 varnish',
-23 silly registry.get     'last-modified': 'Thu, 18 Dec 2014 15:33:55 GMT',
+23 silly registry.get     'last-modified': 'Thu, 18 Dec 2014 17:56:08 GMT',
 23 silly registry.get     'cache-control': 'max-age=60',
 23 silly registry.get     etag: '"CMAOZYVKJ4KL8EW4RKV5OLBRY"',
-23 silly registry.get     age: '6',
-23 silly registry.get     'x-served-by': 'cache-ams4141-AMS',
+23 silly registry.get     age: '42',
+23 silly registry.get     'x-served-by': 'cache-ams4121-AMS',
 23 silly registry.get     'x-cache': 'HIT',
 23 silly registry.get     'x-cache-hits': '1',
-23 silly registry.get     'x-timer': 'S1418916835.913335,VS0,VE0',
+23 silly registry.get     'x-timer': 'S1418925368.756149,VS0,VE0',
 23 silly registry.get     vary: 'Accept',
 23 silly registry.get     'content-length': '0',
 23 silly registry.get     'keep-alive': 'timeout=10, max=50',
@@ -167,30 +167,25 @@
 36 info install protractor@1.5.0 into C:\Users\v.stokolosa\AppData\Roaming\npm
 37 info installOne protractor@1.5.0
 38 info C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor unbuild
-39 info preuninstall protractor@1.5.0
-40 info uninstall protractor@1.5.0
-41 verbose true,C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules,C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules unbuild protractor@1.5.0
-42 verbose C:\Users\v.stokolosa\AppData\Roaming\npm,[object Object] binRoot
-43 info postuninstall protractor@1.5.0
-44 info C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor unbuild
-45 error error rolling back Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
-45 error error rolling back  protractor@1.5.0 { [Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe']
-45 error error rolling back   errno: 50,
-45 error error rolling back   code: 'EPERM',
-45 error error rolling back   path: 'C:\\Users\\v.stokolosa\\AppData\\Roaming\\npm\\node_modules\\protractor\\selenium\\chromedriver.exe' }
-46 error Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
-46 error  { [Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe']
-46 error   errno: 50,
-46 error   code: 'EPERM',
-46 error   path: 'C:\\Users\\v.stokolosa\\AppData\\Roaming\\npm\\node_modules\\protractor\\selenium\\chromedriver.exe' }
-47 error Please try running this command again as root/Administrator.
-48 error System Windows_NT 6.1.7601
-49 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "protractor"
-50 error cwd d:\MY\projects\Angular-responsive-app
-51 error node -v v0.10.21
-52 error npm -v 1.3.11
-53 error path C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe
-54 error code EPERM
-55 error errno 50
-56 error stack Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
-57 verbose exit [ 50, true ]
+39 info C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor unbuild
+40 error error rolling back Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
+40 error error rolling back  protractor@1.5.0 { [Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe']
+40 error error rolling back   errno: 50,
+40 error error rolling back   code: 'EPERM',
+40 error error rolling back   path: 'C:\\Users\\v.stokolosa\\AppData\\Roaming\\npm\\node_modules\\protractor\\selenium\\chromedriver.exe' }
+41 error Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
+41 error  { [Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe']
+41 error   errno: 50,
+41 error   code: 'EPERM',
+41 error   path: 'C:\\Users\\v.stokolosa\\AppData\\Roaming\\npm\\node_modules\\protractor\\selenium\\chromedriver.exe' }
+42 error Please try running this command again as root/Administrator.
+43 error System Windows_NT 6.1.7601
+44 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "protractor"
+45 error cwd d:\MY\projects\Angular-responsive-app
+46 error node -v v0.10.21
+47 error npm -v 1.3.11
+48 error path C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe
+49 error code EPERM
+50 error errno 50
+51 error stack Error: EPERM, unlink 'C:\Users\v.stokolosa\AppData\Roaming\npm\node_modules\protractor\selenium\chromedriver.exe'
+52 verbose exit [ 50, true ]
