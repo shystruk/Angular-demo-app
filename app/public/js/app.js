@@ -4,6 +4,8 @@ var app = angular.module('app', [
     'ngRoute',
     'ngResource',
     'ngCookies',
+    'ngStorage',
+//    'LocalStorageModule',
     'pascalprecht.translate',
     'topMenuService',
     'homeSliderService'
@@ -69,7 +71,10 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': 'Login',
         'PASSWORD': 'Password',
         'WELCOME': 'Welcome',
-        'GUEST': 'Guest'
+        'GUEST': 'Guest',
+        'SUBMIT': 'Submit',
+        'COM_NAME': 'Your Name',
+        'COM_TEXTAREA': 'Share your thoughts'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -84,7 +89,10 @@ app.config(['$translateProvider', function ($translateProvider) {
             'MacBook': 'МакБук',
             'Login': 'Вхід',
             'MyAccount': 'Мій Кабінет'
-        }
+        },
+        'SUBMIT': 'Відправити',
+        'COM_NAME': 'Ваше Ім"я',
+        'COM_TEXTAREA': 'Поділіться своєю думкою'
     });
 
     $translateProvider.translations('de', {
@@ -99,7 +107,10 @@ app.config(['$translateProvider', function ($translateProvider) {
             'MacBook': 'MacBook',
             'Login': 'Einloggen',
             'MyAccount': 'Mein Konto'
-        }
+        },
+        'SUBMIT': 'Einreichen',
+        'COM_NAME': 'Ihren Namen',
+        'COM_TEXTAREA': 'Sagen Sie Ihre Meinung'
     });
 
     $translateProvider.translations('fr', {
@@ -114,7 +125,10 @@ app.config(['$translateProvider', function ($translateProvider) {
             'MacBook': 'МакБук',
             'Login': 'S"identifier',
             'MyAccount': 'Mon Compte'
-        }
+        },
+        'SUBMIT': 'Soumettre',
+        'COM_NAME': 'Votre Nom',
+        'COM_TEXTAREA': 'Partagez votre opinion'
     });
 
     $translateProvider.determinePreferredLanguage();
@@ -394,3 +408,67 @@ angular.module('homeSliderService', ['ngResource']).
             image: getRequest
         };
     }]);
+/**
+ * Created by v.stokolosa on 12/19/14.
+ */
+'use strict';
+
+app.directive('commentsBlock', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'app/modules/comments/comments.html'
+    };
+});
+
+/**
+ * Created by v.stokolosa on 12/19/14.
+ */
+'use strict';
+
+app.service('commentsJSON', ['$http', function ($http) {
+    return {
+        getJSON: function () {
+            return $http.get('app/modules/comments/comments.json');
+        }
+    };
+}]);
+
+/**
+ * Created by v.stokolosa on 12/19/14.
+ */
+'use strict';
+/**
+ * LocaleStorage
+ */
+//app.controller('commentsCtrl', function ($scope, localStorageService) {
+//    var commentsStore = localStorageService.get('comments');
+//
+//    $scope.comments = commentsStore && commentsStore.split('\n') || [];
+//    $scope.$watch(function () {
+//        localStorageService.add('comments', $scope.comments.join('\n'));
+//    });
+//
+//    $scope.addComments = function () {
+//        $scope.comments.push($scope.yourName);
+//        $scope.yourName = '';
+//        $scope.yourThoughts = '';
+//    };
+//});
+
+/**
+ * ngStorage
+ */
+app.controller('commentsCtrl', ['$scope', '$localStorage', function ($scope, $localStorage) {
+    $scope.addComments = function () {
+
+        $scope.commentsData = {
+            name: $scope.yourName,
+            thoughts: $scope.yourThoughts
+        };
+
+        $localStorage.commentsData = $scope.commentsData;
+        
+        $scope.commentsData = $localStorage.commentsData;
+    };
+
+}]);

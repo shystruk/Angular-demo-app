@@ -1,0 +1,18 @@
+<div class="row mt-50" ng-controller="commentsCtrl">
+    <div class="columns">
+
+        <div id="countOfComments"></div>
+
+        <form novalidate>
+            <input type="text" ng-model="yourName" ng-minlength="1" placeholder="{{'COM_NAME' | translate}}" required/>
+            <textarea ng-model="yourThoughts" ng-minlength="2" placeholder="{{'COM_TEXTAREA' | translate}}" required></textarea>
+            <button type="submit" ng-click="addComments()">{{'SUBMIT' | translate}}</button>
+        </form>
+
+        <ul>
+            <!--<li ng-repeat="count in comments">{{count.yourName}}</li>-->
+            <li>{{commentsData.name}}</li>
+        </ul>
+
+    </div>
+</div>

@@ -40,13 +40,18 @@ module.exports = function (grunt) {
                     'app/modules/home/top_menu/topMenuService.js',
                     'app/modules/home_slider/homeSliderController.js',
                     'app/modules/home_slider/homeSliderDirective.js',
-                    'app/modules/home_slider/homeSliderService.js'
+                    'app/modules/home_slider/homeSliderService.js',
+                    'app/modules/comments/commentsDirective.js',
+                    'app/modules/comments/commentsService.js',
+                    'app/modules/comments/commentsController.js'
                 ],
                 dest: 'app/public/js/app.js'
             },
             extras: {
                 src: [
                     'bower_components/angular/angular.min.js',
+                    'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+                    'bower_components/ngstorage/ngStorage.min.js',
                     'bower_components/angular-cookies/angular-cookies.min.js',
                     'bower_components/angular-resource/angular-resource.min.js',
                     'bower_components/angular-route/angular-route.min.js',

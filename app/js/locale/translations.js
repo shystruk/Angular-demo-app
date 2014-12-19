@@ -10,7 +10,10 @@ app.config(['$translateProvider', function ($translateProvider) {
         'LOGIN': 'Login',
         'PASSWORD': 'Password',
         'WELCOME': 'Welcome',
-        'GUEST': 'Guest'
+        'GUEST': 'Guest',
+        'SUBMIT': 'Submit',
+        'COM_NAME': 'Your Name',
+        'COM_TEXTAREA': 'Share your thoughts'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -25,7 +28,10 @@ app.config(['$translateProvider', function ($translateProvider) {
             'MacBook': 'МакБук',
             'Login': 'Вхід',
             'MyAccount': 'Мій Кабінет'
-        }
+        },
+        'SUBMIT': 'Відправити',
+        'COM_NAME': 'Ваше Ім"я',
+        'COM_TEXTAREA': 'Поділіться своєю думкою'
     });
 
     $translateProvider.translations('de', {
@@ -40,7 +46,10 @@ app.config(['$translateProvider', function ($translateProvider) {
             'MacBook': 'MacBook',
             'Login': 'Einloggen',
             'MyAccount': 'Mein Konto'
-        }
+        },
+        'SUBMIT': 'Einreichen',
+        'COM_NAME': 'Ihren Namen',
+        'COM_TEXTAREA': 'Sagen Sie Ihre Meinung'
     });
 
     $translateProvider.translations('fr', {
@@ -55,7 +64,10 @@ app.config(['$translateProvider', function ($translateProvider) {
             'MacBook': 'МакБук',
             'Login': 'S"identifier',
             'MyAccount': 'Mon Compte'
-        }
+        },
+        'SUBMIT': 'Soumettre',
+        'COM_NAME': 'Votre Nom',
+        'COM_TEXTAREA': 'Partagez votre opinion'
     });
 
     $translateProvider.determinePreferredLanguage();
