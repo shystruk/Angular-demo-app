@@ -15,6 +15,19 @@ npm install -g grunt-cli
 ```html
 npm install -g bower
 ```
+In *.json* files we have all packages what we need for work app. This command installs a package, and any packages that it depends on.
+```html
+npm install
+```
+```html
+bower install
+```
+Thats all. All packages installed. Go to root folder from console and run server
+```html
+node server.js
+
+Static file server running at http://localhost:8888
+```
 
 
 Information
