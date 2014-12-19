@@ -1,4 +1,4 @@
-Angular responsive app
+Angular app
 ====================
 
-Angular responsive app
+Angular app
