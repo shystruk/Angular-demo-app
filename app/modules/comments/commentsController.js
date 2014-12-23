@@ -5,35 +5,37 @@
 /**
  * LocaleStorage
  */
-//app.controller('commentsCtrl', function ($scope, localStorageService) {
-//    var commentsStore = localStorageService.get('comments');
-//
-//    $scope.comments = commentsStore && commentsStore.split('\n') || [];
-//    $scope.$watch(function () {
-//        localStorageService.add('comments', $scope.comments.join('\n'));
-//    });
-//
-//    $scope.addComments = function () {
-//        $scope.comments.push($scope.yourName);
-//        $scope.yourName = '';
-//        $scope.yourThoughts = '';
-//    };
-//});
+app.controller('commentsCtrl', ['$scope', 'localStorageService', function ($scope, localStorageService) {
+    //fields
+    $scope.yourName = '';
+    $scope.yourThoughts = '';
 
-/**
- * ngStorage
- */
-app.controller('commentsCtrl', ['$scope', '$localStorage', function ($scope, $localStorage) {
+    //localStorage
+    $scope.commentsData = {};
+    $scope.cacheData = 'commentsData';
+
+    //check localStorage 'commentsData'
+    if (localStorageService.get($scope.cacheData) !== null) {
+        $scope.commentsData = localStorageService.get($scope.cacheData);
+    }
+
+    $scope.$watch('commentsData', function (newValue, oldValue) {
+        localStorageService.add($scope.cacheData, JSON.stringify($scope.commentsData));
+    }, true);
+
     $scope.addComments = function () {
-
-        $scope.commentsData = {
-            name: $scope.yourName,
-            thoughts: $scope.yourThoughts
-        };
-
-        $localStorage.commentsData = $scope.commentsData;
-        
-        $scope.commentsData = $localStorage.commentsData;
+        $scope.commentsData[$scope.yourName] = $scope.yourThoughts;
+        $scope.yourName = '';
+        $scope.yourThoughts = '';
     };
 
+    $scope.counts = function () {
+        var count = 0;
+
+        angular.forEach($scope.commentsData, function (value, key, obj) {
+            count = Object.keys(obj).length;
+        });
+
+        return count;
+    };
 }]);

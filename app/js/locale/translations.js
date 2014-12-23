@@ -13,7 +13,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'GUEST': 'Guest',
         'SUBMIT': 'Submit',
         'COM_NAME': 'Your Name',
-        'COM_TEXTAREA': 'Share your thoughts'
+        'COM_TEXTAREA': 'Share your thoughts',
+        'COMMENTS': 'All Comments'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -31,7 +32,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         },
         'SUBMIT': 'Відправити',
         'COM_NAME': 'Ваше Ім"я',
-        'COM_TEXTAREA': 'Поділіться своєю думкою'
+        'COM_TEXTAREA': 'Поділіться своєю думкою',
+        'COMMENTS': 'Всі коментарі'
     });
 
     $translateProvider.translations('de', {
@@ -49,7 +51,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         },
         'SUBMIT': 'Einreichen',
         'COM_NAME': 'Ihren Namen',
-        'COM_TEXTAREA': 'Sagen Sie Ihre Meinung'
+        'COM_TEXTAREA': 'Sagen Sie Ihre Meinung',
+        'COMMENTS': 'Alle Kommentare Anzeigen'
     });
 
     $translateProvider.translations('fr', {
@@ -67,7 +70,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         },
         'SUBMIT': 'Soumettre',
         'COM_NAME': 'Votre Nom',
-        'COM_TEXTAREA': 'Partagez votre opinion'
+        'COM_TEXTAREA': 'Partagez votre opinion',
+        'COMMENTS': 'Tous Les Commentaires'
     });
 
     $translateProvider.determinePreferredLanguage();

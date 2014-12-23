@@ -4,8 +4,7 @@ var app = angular.module('app', [
     'ngRoute',
     'ngResource',
     'ngCookies',
-    'ngStorage',
-//    'LocalStorageModule',
+    'LocalStorageModule',
     'pascalprecht.translate',
     'topMenuService',
     'homeSliderService'

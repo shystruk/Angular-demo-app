@@ -1,4 +1,7 @@
 /* base */
+.ng-body {
+    margin-bottom: 50px;
+}
 textarea {
     width: 100% !important; /*resize only vertical*/
     overflow: auto;
@@ -358,4 +361,23 @@ ul li, ol li {
         -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
         transform: translate3d(100%, 0, 0) rotate(-90deg);
     }
+}
+
+/* comments */
+/*=======================================*/
+.count-comments {
+    border-bottom: 4px solid #2ba6cb;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+.name-comments {
+    display: block;
+    font-weight: bold;
+    color: #2ba6cb;
+}
+.list-comments {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
 }

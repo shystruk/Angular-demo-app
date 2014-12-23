@@ -4,8 +4,7 @@ var app = angular.module('app', [
     'ngRoute',
     'ngResource',
     'ngCookies',
-    'ngStorage',
-//    'LocalStorageModule',
+    'LocalStorageModule',
     'pascalprecht.translate',
     'topMenuService',
     'homeSliderService'
@@ -74,7 +73,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'GUEST': 'Guest',
         'SUBMIT': 'Submit',
         'COM_NAME': 'Your Name',
-        'COM_TEXTAREA': 'Share your thoughts'
+        'COM_TEXTAREA': 'Share your thoughts',
+        'COMMENTS': 'All Comments'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -92,7 +92,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         },
         'SUBMIT': 'Відправити',
         'COM_NAME': 'Ваше Ім"я',
-        'COM_TEXTAREA': 'Поділіться своєю думкою'
+        'COM_TEXTAREA': 'Поділіться своєю думкою',
+        'COMMENTS': 'Всі коментарі'
     });
 
     $translateProvider.translations('de', {
@@ -110,7 +111,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         },
         'SUBMIT': 'Einreichen',
         'COM_NAME': 'Ihren Namen',
-        'COM_TEXTAREA': 'Sagen Sie Ihre Meinung'
+        'COM_TEXTAREA': 'Sagen Sie Ihre Meinung',
+        'COMMENTS': 'Alle Kommentare Anzeigen'
     });
 
     $translateProvider.translations('fr', {
@@ -128,7 +130,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         },
         'SUBMIT': 'Soumettre',
         'COM_NAME': 'Votre Nom',
-        'COM_TEXTAREA': 'Partagez votre opinion'
+        'COM_TEXTAREA': 'Partagez votre opinion',
+        'COMMENTS': 'Tous Les Commentaires'
     });
 
     $translateProvider.determinePreferredLanguage();
@@ -440,35 +443,37 @@ app.service('commentsJSON', ['$http', function ($http) {
 /**
  * LocaleStorage
  */
-//app.controller('commentsCtrl', function ($scope, localStorageService) {
-//    var commentsStore = localStorageService.get('comments');
-//
-//    $scope.comments = commentsStore && commentsStore.split('\n') || [];
-//    $scope.$watch(function () {
-//        localStorageService.add('comments', $scope.comments.join('\n'));
-//    });
-//
-//    $scope.addComments = function () {
-//        $scope.comments.push($scope.yourName);
-//        $scope.yourName = '';
-//        $scope.yourThoughts = '';
-//    };
-//});
+app.controller('commentsCtrl', ['$scope', 'localStorageService', function ($scope, localStorageService) {
+    //fields
+    $scope.yourName = '';
+    $scope.yourThoughts = '';
 
-/**
- * ngStorage
- */
-app.controller('commentsCtrl', ['$scope', '$localStorage', function ($scope, $localStorage) {
+    //localStorage
+    $scope.commentsData = {};
+    $scope.cacheData = 'commentsData';
+
+    //check localStorage 'commentsData'
+    if (localStorageService.get($scope.cacheData) !== null) {
+        $scope.commentsData = localStorageService.get($scope.cacheData);
+    }
+
+    $scope.$watch('commentsData', function (newValue, oldValue) {
+        localStorageService.add($scope.cacheData, JSON.stringify($scope.commentsData));
+    }, true);
+
     $scope.addComments = function () {
-
-        $scope.commentsData = {
-            name: $scope.yourName,
-            thoughts: $scope.yourThoughts
-        };
-
-        $localStorage.commentsData = $scope.commentsData;
-        
-        $scope.commentsData = $localStorage.commentsData;
+        $scope.commentsData[$scope.yourName] = $scope.yourThoughts;
+        $scope.yourName = '';
+        $scope.yourThoughts = '';
     };
 
+    $scope.counts = function () {
+        var count = 0;
+
+        angular.forEach($scope.commentsData, function (value, key, obj) {
+            count = Object.keys(obj).length;
+        });
+
+        return count;
+    };
 }]);

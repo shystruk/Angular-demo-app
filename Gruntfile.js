@@ -50,9 +50,8 @@ module.exports = function (grunt) {
             extras: {
                 src: [
                     'bower_components/angular/angular.min.js',
-                    'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
-                    'bower_components/ngstorage/ngStorage.min.js',
                     'bower_components/angular-cookies/angular-cookies.min.js',
+                    'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
                     'bower_components/angular-resource/angular-resource.min.js',
                     'bower_components/angular-route/angular-route.min.js',
                     'bower_components/angular-translate/angular-translate.min.js',
@@ -102,7 +101,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-karma');
