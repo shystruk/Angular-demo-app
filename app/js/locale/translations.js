@@ -14,7 +14,12 @@ app.config(['$translateProvider', function ($translateProvider) {
         'SUBMIT': 'Submit',
         'COM_NAME': 'Your Name',
         'COM_TEXTAREA': 'Share your thoughts',
-        'COMMENTS': 'All Comments'
+        'COMMENT': 'All Comments',
+        'COMMENTS': {
+            'YES': 'All Comments',
+            'NO': 'No Comments Yet'
+        },
+        'REMOVE': 'Remove'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -33,7 +38,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'SUBMIT': 'Відправити',
         'COM_NAME': 'Ваше Ім"я',
         'COM_TEXTAREA': 'Поділіться своєю думкою',
-        'COMMENTS': 'Всі коментарі'
+        'COMMENT': 'Всі коментарі',
+        'REMOVE': 'Видалити'
     });
 
     $translateProvider.translations('de', {
@@ -52,7 +58,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'SUBMIT': 'Einreichen',
         'COM_NAME': 'Ihren Namen',
         'COM_TEXTAREA': 'Sagen Sie Ihre Meinung',
-        'COMMENTS': 'Alle Kommentare Anzeigen'
+        'COMMENT': 'Alle Kommentare Anzeigen',
+        'REMOVE': 'Entfernen'
     });
 
     $translateProvider.translations('fr', {
@@ -71,7 +78,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'SUBMIT': 'Soumettre',
         'COM_NAME': 'Votre Nom',
         'COM_TEXTAREA': 'Partagez votre opinion',
-        'COMMENTS': 'Tous Les Commentaires'
+        'COMMENT': 'Tous Les Commentaires',
+        'REMOVE': 'Supprimer'
     });
 
     $translateProvider.determinePreferredLanguage();

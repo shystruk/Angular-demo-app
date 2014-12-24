@@ -1,18 +1,23 @@
 <div class="row mt-50" ng-controller="commentsCtrl">
     <div class="columns">
 
-        <div id="countOfComments" class="count-comments">{{'COMMENTS' | translate}} ({{counts()}})</div>
+        <!--{{titleComments}} for translate-->
+        <div id="countOfComments" class="count-comments">{{'COMMENT' | translate}} ({{counts()}})</div>
 
-        <form name="formComments" novalidate>
+        <form name="formComments" class="mb-30" novalidate>
             <input type="text" ng-model="yourName" ng-minlength="1" placeholder="{{'COM_NAME' | translate}}" required/>
             <textarea ng-model="yourThoughts" ng-minlength="2" placeholder="{{'COM_TEXTAREA' | translate}}" required></textarea>
             <button type="submit" ng-click="addComments()" ng-disabled="formComments.$invalid">{{'SUBMIT' | translate}}</button>
         </form>
 
         <ul>
-            <li class="list-comments" ng-repeat="(name, thoughts) in commentsData">
-                <span class="name-comments done-comments">{{name}}</span>
-                <span class="thoughts-comments">{{thoughts}}</span>
+            <li class="list-comments" ng-repeat="comment in commentsData">
+                <span class="name-comments done-comments">
+                    {{comment.name}}
+                    <span class="date-comments">{{comment.date | date:'yyyy/MM/dd'}}</span>
+                </span>
+                <span class="thoughts-comments">{{comment.thoughts}}</span>
+                <a class="remove-comment" ng-click="deleteComment(comment.name)">{{'REMOVE' | translate}}</a>
             </li>
         </ul>
 
