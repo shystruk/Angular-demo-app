@@ -10,7 +10,7 @@ var app = angular.module('app', [
     'homeSliderService'
 ]);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/', {
             templateUrl: 'app/modules/home/home.html',
@@ -35,6 +35,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         otherwise({
             redirectTo: '/'
         });
+
+    // rid of the hash in urls
+//    $locationProvider.html5Mode({
+//        enabled: true,
+//        requireBase: false
+//    });
 }]);
 
 //method to register work which should be performed when the injector is done loading all modules

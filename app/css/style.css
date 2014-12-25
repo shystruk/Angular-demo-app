@@ -56,6 +56,18 @@ ul li, ol li {
     color: #000000;
     font-weight: bold;
 }
+.fixed {
+    background-color: #ffffff;
+    border-bottom: 4px solid #000000;
+    margin: 0 auto;
+    padding: 0 0 12px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+.fixed .top-menu {
+    margin-top: 5px;
+}
 
 /* login */
 .login-page {

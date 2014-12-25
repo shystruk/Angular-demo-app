@@ -5,7 +5,7 @@
 
 app.directive('topBar', function () {
     return {
-        restrict: 'E',
+        restrict: 'AE',
         templateUrl: 'app/modules/home/top_menu/top_menu.html'
     };
 });

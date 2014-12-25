@@ -10,7 +10,7 @@ var app = angular.module('app', [
     'homeSliderService'
 ]);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/', {
             templateUrl: 'app/modules/home/home.html',
@@ -35,6 +35,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         otherwise({
             redirectTo: '/'
         });
+
+    // rid of the hash in urls
+//    $locationProvider.html5Mode({
+//        enabled: true,
+//        requireBase: false
+//    });
 }]);
 
 //method to register work which should be performed when the injector is done loading all modules
@@ -57,6 +63,27 @@ app.run(['$location', '$rootScope', '$translate', function ($location, $rootScop
 app.filter('encodeURI', function () {
     return window.encodeURI;
 });
+
+/**
+ * Created by v.stokolosa on 12/25/14.
+ */
+'use strict';
+
+/**
+ * Scroll for top-bar
+ */
+app.directive("scroll", ['$window', function ($window) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+            if (this.pageYOffset >= 50) {
+                scope.scrollFun = true;
+            } else {
+                scope.scrollFun = false;
+            }
+            scope.$apply();
+        });
+    };
+}]);
 
 /**
  * Created by v.stokolosa on 12/10/14.
@@ -233,7 +260,7 @@ app.controller('topBarCtrl', ['$scope', 'MenuHTTP', function ($scope, MenuHTTP) 
 
 app.directive('topBar', function () {
     return {
-        restrict: 'E',
+        restrict: 'AE',
         templateUrl: 'app/modules/home/top_menu/top_menu.html'
     };
 });
