@@ -1,3 +1,5 @@
+@import url("animation.css");
+
 /* base */
 .ng-body {
     margin-bottom: 50px;
@@ -124,42 +126,6 @@ ul li, ol li {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
-
-@-webkit-keyframes rotateIn {
-    0% {
-        -webkit-transform-origin: center;
-        transform-origin: center;
-        -webkit-transform: rotate3d(0, 0, 1, -200deg);
-        transform: rotate3d(0, 0, 1, -200deg);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform-origin: center;
-        transform-origin: center;
-        -webkit-transform: none;
-        transform: none;
-        opacity: 1;
-    }
-}
-@keyframes rotateIn {
-    0% {
-        -webkit-transform-origin: center;
-        transform-origin: center;
-        -webkit-transform: rotate3d(0, 0, 1, -200deg);
-        transform: rotate3d(0, 0, 1, -200deg);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform-origin: center;
-        transform-origin: center;
-        -webkit-transform: none;
-        transform: none;
-        opacity: 1;
-    }
-}
-
 .rotateIn {
     -webkit-animation-name: rotateIn;
     animation-name: rotateIn;
@@ -253,118 +219,6 @@ ul li, ol li {
     animation: rotateToRight 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
-/*==========  SPCECIAL ANIMATIONS  ==========*/
-@-webkit-keyframes rotateToLeft {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        transform: translate3d(-100%, 0, 0) rotate(90deg);
-    }
-}
-
-@-moz-keyframes rotateToLeft {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        transform: translate3d(-100%, 0, 0) rotate(90deg);
-    }
-}
-
-@-ms-keyframes rotateToLeft {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        transform: translate3d(-100%, 0, 0) rotate(90deg);
-    }
-}
-
-@keyframes rotateToLeft {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
-        transform: translate3d(-100%, 0, 0) rotate(90deg);
-    }
-}
-
-@-webkit-keyframes rotateToRight {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        transform: translate3d(100%, 0, 0) rotate(-90deg);
-    }
-}
-
-@-moz-keyframes rotateToRight {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        transform: translate3d(100%, 0, 0) rotate(-90deg);
-    }
-}
-
-@-ms-keyframes rotateToRight {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        transform: translate3d(100%, 0, 0) rotate(-90deg);
-    }
-}
-
-@keyframes rotateToRight {
-    99% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
-        transform: translate3d(100%, 0, 0) rotate(-90deg);
-    }
-}
 
 /* comments */
 /*=======================================*/

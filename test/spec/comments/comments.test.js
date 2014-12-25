@@ -3,6 +3,9 @@
  */
 'use strict';
 
+/**
+ * Comments Controller
+ */
 describe('commentsCtrl', function () {
     var scope,
         commentsStore = '';
@@ -43,4 +46,28 @@ describe('commentsCtrl', function () {
 
         expect(scope.commentsData.length).toEqual(0);
     });
+});
+
+/**
+ * Comments Directive
+ */
+describe('commentsBlock Directive', function () {
+    var $compile, $rootScope, element;
+
+    beforeEach(angular.mock.module('app'));
+    beforeEach(angular.mock.module('app/modules/comments/comments.html'));
+    beforeEach(angular.mock.inject(function (_$rootScope_, _$compile_) {
+        $rootScope = _$rootScope_;
+        $compile = _$compile_;
+    }));
+
+    it('should display 1 input and 1 textarea', function () {
+        element = angular.element('<comments-block></comments-block>');
+        $compile(element)($rootScope);
+        $rootScope.$digest();
+
+        expect(element.find('input').length).toEqual(1);
+        expect(element.find('textarea').length).toEqual(1);
+    });
+
 });

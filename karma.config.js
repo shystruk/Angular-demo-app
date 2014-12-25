@@ -36,6 +36,11 @@ module.exports = function (config) {
             'test/spec/**/**/*.test.js'
         ],
 
+        proxies: {
+            '/app/image/': 'http://localhost:8888/app/image',
+            '/app/public/image/': 'http://localhost:8888/app/public/image'
+        },
+
         // list of files to exclude
         exclude: [
         ],
