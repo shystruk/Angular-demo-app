@@ -30,7 +30,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         when('/account', {
             templateUrl: 'app/modules/account/my_account.html',
             controller: 'accountCtrl',
-            title: 'MyAccount'
+            title: 'My Account'
+        }).
+        when('/new-account', {
+            templateUrl: 'app/modules/account/new_account.html',
+            controller: 'newAccountCtrl',
+            title: 'New Account'
         }).
         otherwise({
             redirectTo: '/'
@@ -70,22 +75,6 @@ app.filter('encodeURI', function () {
 'use strict';
 
 /**
- * Scroll for top-bar
- */
-app.directive("scroll", ['$window', function ($window) {
-    return function(scope, element, attrs) {
-        angular.element($window).bind("scroll", function() {
-            if (this.pageYOffset >= 50) {
-                scope.scrollFun = true;
-            } else {
-                scope.scrollFun = false;
-            }
-            scope.$apply();
-        });
-    };
-}]);
-
-/**
  * Created by v.stokolosa on 12/10/14.
  */
 'use strict';
@@ -106,7 +95,11 @@ app.config(['$translateProvider', function ($translateProvider) {
             'YES': 'All Comments',
             'NO': 'No Comments Yet'
         },
-        'REMOVE': 'Remove'
+        'REMOVE': 'Remove',
+        'CREATE': 'Create Account',
+        'FIRSTNAME': 'First Name',
+        'LASTNAME': 'Last Name',
+        'CONFIRMPASSWORD': 'Confirm Password'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -120,13 +113,18 @@ app.config(['$translateProvider', function ($translateProvider) {
             'V.S.12 | Home': 'V.S.12 | Головна',
             'MacBook': 'МакБук',
             'Login': 'Вхід',
-            'MyAccount': 'Мій Кабінет'
+            'My Account': 'Мій Кабінет',
+            'Ne wAccount': 'Новий Профіль'
         },
         'SUBMIT': 'Відправити',
         'COM_NAME': 'Ваше Ім"я',
         'COM_TEXTAREA': 'Поділіться своєю думкою',
         'COMMENT': 'Всі коментарі',
-        'REMOVE': 'Видалити'
+        'REMOVE': 'Видалити',
+        'CREATE': 'Створити Профіль',
+        'FIRSTNAME': 'Ім"я',
+        'LASTNAME': 'Прізвище',
+        'CONFIRMPASSWORD': 'Повторіть Пароль'
     });
 
     $translateProvider.translations('de', {
@@ -140,13 +138,18 @@ app.config(['$translateProvider', function ($translateProvider) {
             'V.S.12 | Home': 'V.S.12 | Zuhause',
             'MacBook': 'MacBook',
             'Login': 'Einloggen',
-            'MyAccount': 'Mein Konto'
+            'My Account': 'Mein Konto',
+            'New Account': 'Neuer Kunde'
         },
         'SUBMIT': 'Einreichen',
         'COM_NAME': 'Ihren Namen',
         'COM_TEXTAREA': 'Sagen Sie Ihre Meinung',
         'COMMENT': 'Alle Kommentare Anzeigen',
-        'REMOVE': 'Entfernen'
+        'REMOVE': 'Entfernen',
+        'CREATE': 'Benutzerkonto Erstellen',
+        'FIRSTNAME': 'Vorname',
+        'LASTNAME': 'Nachname',
+        'CONFIRMPASSWORD': 'Passwort bestätigen'
     });
 
     $translateProvider.translations('fr', {
@@ -160,13 +163,18 @@ app.config(['$translateProvider', function ($translateProvider) {
             'V.S.12 | Home': 'V.S.12 | Accueil',
             'MacBook': 'МакБук',
             'Login': 'S"identifier',
-            'MyAccount': 'Mon Compte'
+            'My Account': 'Mon Compte',
+            'New Account': 'Nouveau compte'
         },
         'SUBMIT': 'Soumettre',
         'COM_NAME': 'Votre Nom',
         'COM_TEXTAREA': 'Partagez votre opinion',
         'COMMENT': 'Tous Les Commentaires',
-        'REMOVE': 'Supprimer'
+        'REMOVE': 'Supprimer',
+        'CREATE': 'Créer Un Compte',
+        'FIRSTNAME': 'Prénom',
+        'LASTNAME': 'Nom',
+        'CONFIRMPASSWORD': 'Confirmez le mot de passe'
     });
 
     $translateProvider.determinePreferredLanguage();
@@ -198,6 +206,49 @@ app.controller('accountCtrl', ['$scope', function ($scope) {
 }]);
 
 /**
+ * Created by v.stokolosa on 12/26/14.
+ */
+'use strict';
+
+app.controller('newAccountCtrl', ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
+    //fields
+    $scope.firstNameAccount = '';
+    $scope.lastNameAccount = '';
+    $scope.loginAccount = '';
+    $scope.passwordAccount = '';
+    $scope.confirmPasAccount = '';
+
+    //localStorage
+    $scope.accountData = [];
+    $scope.accountCacheData = 'accountData';
+
+    //check localStorage 'accountData'
+    if (localStorageService.get($scope.accountCacheData) !== null) {
+        $scope.accountData = localStorageService.get($scope.accountCacheData);
+    }
+
+    $scope.$watch('accountData', function (newValue, oldValue) {
+        localStorageService.add($scope.accountCacheData, JSON.stringify($scope.accountData));
+    }, true);
+
+    $scope.createAccount = function () {
+
+        $scope.accountData.unshift({
+            firstName: $scope.firstNameAccount,
+            lastName: $scope.lastNameAccount,
+            login: $scope.loginAccount,
+            password: $scope.passwordAccount,
+            confirmPas: $scope.confirmPasAccount
+        });
+        $scope.firstNameAccount = '';
+        $scope.lastNameAccount = '';
+        $scope.loginAccount = '';
+        $scope.passwordAccount = '';
+        $scope.confirmPasAccount = '';
+    };
+}]);
+
+/**
  * Created by v.stokolosa on 12/16/14.
  */
 'use strict';
@@ -226,6 +277,10 @@ app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location)
         if ($scope.credentials.login === 'guest' && $scope.credentials.password === 'guest') {
             $location.path('/account');
         }
+    };
+
+    $scope.createAccount = function () {
+        $location.path('/new-account');
     };
 }]);
 
@@ -264,6 +319,22 @@ app.directive('topBar', function () {
         templateUrl: 'app/modules/home/top_menu/top_menu.html'
     };
 });
+
+/**
+ * Scroll
+ */
+app.directive("scroll", ['$window', function ($window) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+            if (this.pageYOffset >= 20) {
+                scope.scrollFun = true;
+            } else {
+                scope.scrollFun = false;
+            }
+            scope.$apply();
+        });
+    };
+}]);
 
 /**
  * Created by v.stokolosa on 12/10/14.

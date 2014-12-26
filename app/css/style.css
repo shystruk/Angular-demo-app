@@ -83,6 +83,16 @@ ul li, ol li {
     padding: 0 22px;
     margin-top: 20px;
 }
+.new-account .login-field {
+    padding-left: 0.7em;
+}
+.new-account .password-fields {
+    padding: 0 0.9em;
+}
+.new-account .create-account {
+    padding: 0 2.3em;
+}
+
 /* language */
 .app-language {
     position: relative;

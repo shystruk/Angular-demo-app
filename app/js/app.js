@@ -30,7 +30,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         when('/account', {
             templateUrl: 'app/modules/account/my_account.html',
             controller: 'accountCtrl',
-            title: 'MyAccount'
+            title: 'My Account'
+        }).
+        when('/new-account', {
+            templateUrl: 'app/modules/account/new_account.html',
+            controller: 'newAccountCtrl',
+            title: 'New Account'
         }).
         otherwise({
             redirectTo: '/'

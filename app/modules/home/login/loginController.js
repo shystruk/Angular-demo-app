@@ -18,4 +18,8 @@ app.controller('loginCtrl', ['$scope', '$location', function ($scope, $location)
             $location.path('/account');
         }
     };
+
+    $scope.createAccount = function () {
+        $location.path('/new-account');
+    };
 }]);
