@@ -1,4 +1,7 @@
 <div class="row top-menu" ng-controller="topBarCtrl as top">
+    <span class="account-welcome" ng-show="accountFirstName === true">
+        {{'WELCOME' | translate}}, <span class="account-login">{{accountName}}</span>
+    </span>
 
     <div class="large-2 columns">
         <a ng-href="#/">
@@ -14,7 +17,8 @@
                 <h5><a ng-href="#/{{name.id | encodeURI}}">{{name.name}}</a></h5>
             </dd>
         </dl>
-        <a class="sign-in" ng-href="#/login"><i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}</a>
+        <a class="sign-in" ng-href="#/login" ng-show="accountFirstName === false"><i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}</a>
+        <a class="sign-in" ng-href="#/" ng-click="logOut()" ng-show="accountFirstName === true"><i class="fa fa-sign-in fa-lg"></i>{{"LOG-OUT" | translate}}</a>
     </div>
 
     <div class="large-1 columns" ng-controller="changeLangCtrl as lang">

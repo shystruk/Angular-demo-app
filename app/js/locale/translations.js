@@ -7,6 +7,7 @@ app.config(['$translateProvider', function ($translateProvider) {
     $translateProvider.translations('en_US', {
         'PRICE': 'Price:',
         'SIGN-IN': 'Sign-In',
+        'LOG-OUT': 'Log out',
         'LOGIN': 'Login',
         'PASSWORD': 'Password',
         'WELCOME': 'Welcome',
@@ -29,6 +30,7 @@ app.config(['$translateProvider', function ($translateProvider) {
     $translateProvider.translations('uk_UA', {
         'PRICE': 'Ціна:',
         'SIGN-IN': 'Увійти',
+        'LOG-OUT': 'Вийти',
         'LOGIN': 'Логін',
         'PASSWORD': 'Пароль',
         'WELCOME': 'Вітаємо',
@@ -54,6 +56,7 @@ app.config(['$translateProvider', function ($translateProvider) {
     $translateProvider.translations('de', {
         'PRICE': 'Preis:',
         'SIGN-IN': 'Mein Konto',
+        'LOG-OUT': 'Ausloggen',
         'LOGIN': 'Einloggen',
         'PASSWORD': 'Passwort',
         'WELCOME': 'Willkommen',
@@ -79,6 +82,7 @@ app.config(['$translateProvider', function ($translateProvider) {
     $translateProvider.translations('fr', {
         'PRICE': 'Prix:',
         'SIGN-IN': 'Connexion',
+        'LOG-OUT': 'Déconnexion',
         'LOGIN': "S'identifier",
         'PASSWORD': 'Mot de passe',
         'WELCOME': 'Bienvenue',

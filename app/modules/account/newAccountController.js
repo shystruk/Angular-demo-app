@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.controller('newAccountCtrl', ['$scope', '$location', 'localStorageService', function ($scope, $location, localStorageService) {
+app.controller('newAccountCtrl', ['$scope', '$location', 'localStorageService', '$rootScope', function ($scope, $location, localStorageService, $rootScope) {
     //fields
     $scope.firstNameAccount = '';
     $scope.lastNameAccount = '';
@@ -26,6 +26,8 @@ app.controller('newAccountCtrl', ['$scope', '$location', 'localStorageService', 
 
     $scope.createAccount = function () {
         if ($scope.passwordAccount === $scope.confirmPasAccount) {
+            localStorageService.remove($scope.accountCacheData);
+
             $scope.accountData.unshift({
                 firstName: $scope.firstNameAccount,
                 lastName: $scope.lastNameAccount,
@@ -33,13 +35,17 @@ app.controller('newAccountCtrl', ['$scope', '$location', 'localStorageService', 
                 password: $scope.passwordAccount,
                 confirmPas: $scope.confirmPasAccount
             });
-            $location.path('/new-account');
+
+            $location.path('/account');
 
             $scope.firstNameAccount = '';
             $scope.lastNameAccount = '';
             $scope.loginAccount = '';
             $scope.passwordAccount = '';
             $scope.confirmPasAccount = '';
+
+            //pass account data
+            $rootScope.$emit('accountLogin', $scope.accountData);
         }
     };
 }]);
