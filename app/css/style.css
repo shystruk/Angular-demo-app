@@ -66,9 +66,6 @@ ul li, ol li {
     top: 0;
     z-index: 2;
 }
-.fixed .top-menu {
-    margin-top: 5px;
-}
 
 /* login */
 .login-page {
@@ -92,6 +89,11 @@ ul li, ol li {
 }
 .new-account .create-account {
     padding: 0 2.3em;
+}
+.check-data {
+    color: #c10f0f;
+    font-size: 20px;
+    text-align: center;
 }
 
 .account-welcome {

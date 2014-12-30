@@ -24,7 +24,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'CREATE': 'Create Account',
         'FIRSTNAME': 'First Name',
         'LASTNAME': 'Last Name',
-        'CONFIRMPASSWORD': 'Confirm Password'
+        'CONFIRMPASSWORD': 'Confirm Password',
+        'CHECK_DATA': 'Please enter a valid login and password'
     });
 
     $translateProvider.translations('uk_UA', {
