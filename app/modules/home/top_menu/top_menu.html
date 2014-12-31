@@ -17,10 +17,10 @@
                 <h5><a ng-href="#/{{name.id | encodeURI}}">{{name.name}}</a></h5>
             </dd>
         </dl>
-        <a class="sign-in" id="protTest" ng-href="#/login" ng-show="accountFirstName === false || accountSignIn === false">
+        <a class="sign-in" id="protTest" ng-href="#/login" ng-show="accountFirstName === false">
             <i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}
         </a>
-        <a class="sign-in" ng-href="#/" ng-click="logOut()" ng-show="accountFirstName === true || accountSignIn === true">
+        <a class="sign-in" ng-href="#/" ng-click="logOut()" ng-show="accountFirstName === true">
             <i class="fa fa-sign-in fa-lg"></i>{{"LOG-OUT" | translate}}
         </a>
     </div>

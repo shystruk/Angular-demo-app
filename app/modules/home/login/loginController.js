@@ -27,12 +27,10 @@ app.controller('loginCtrl', ['$scope', '$location', '$rootScope', 'localStorageS
             //check validity of data
             if ($scope.loginData === $scope.credentials.login && $scope.passwordData === $scope.credentials.password) {
                 $location.path('/account');
-                console.log($scope.signInData[key].firstName);
-                scope.accountSignIn = true;
+                $scope.accountSignIn = true;
             } else {
                 $scope.accountSignIn = false;
             }
-            console.log($scope.accountSignIn);
         });
     };
 
