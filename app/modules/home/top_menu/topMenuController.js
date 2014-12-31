@@ -12,24 +12,24 @@
 //    $scope.logoUrl = 'app/image/logo.jpg';
 //}]);
 //============== http request ===========
-app.controller('topBarCtrl', ['$scope', 'MenuHTTP', 'localStorageService', '$rootScope', function ($scope, MenuHTTP, localStorageService, $rootScope) {
+app.controller('topBarCtrl', ['$scope', 'MenuHTTP', 'localStorageService', '$rootScope', 'loginData', function ($scope, MenuHTTP, localStorageService, $rootScope, loginData) {
     $scope.logoUrl = 'app/image/logo.jpg';
 
     $scope.menuName = [];
-    $scope.accountFirstName = false;
     $scope.accountName = '';
 
     MenuHTTP.names(function (data) {
         $scope.menuName = data;
     });
+    $scope.accountFirstName = loginData.firstName();
 
     //take account data
     $rootScope.$on('accountLogin', function (event, data) {
         localStorageService.add('accountName', JSON.stringify(data[0].firstName));
     });
-
+//
     $scope.accountName = localStorageService.get('accountName');
-
+//
     $scope.$watch('accountName', function (newValue, oldValue) {
         if (localStorageService.get('accountName') === null) {
             return $scope.accountFirstName = false;
@@ -43,5 +43,4 @@ app.controller('topBarCtrl', ['$scope', 'MenuHTTP', 'localStorageService', '$roo
         localStorageService.remove('accountName');
         $scope.accountFirstName = false;
     };
-
 }]);

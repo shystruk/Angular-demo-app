@@ -31,6 +31,7 @@ module.exports = function (grunt) {
                     'app/js/app.js',
                     'app/js/filter.js',
                     'app/js/directive.js',
+                    'app/js/services.js',
                     'app/js/locale/translations.js',
                     'app/js/locale/translateController.js',
                     'app/modules/account/accountController.js',
