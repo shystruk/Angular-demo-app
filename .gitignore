@@ -2,3 +2,5 @@
 node_modules/
 bower_components/
 npm-debug.log
+test/e2e_test/protractor-result/*.json
+test/e2e_test/protractor-result/*.png

@@ -17,7 +17,7 @@
                 <h5><a ng-href="#/{{name.id | encodeURI}}">{{name.name}}</a></h5>
             </dd>
         </dl>
-        <a class="sign-in" ng-href="#/login" ng-show="accountFirstName === false || accountSignIn === false">
+        <a class="sign-in" id="protTest" ng-href="#/login" ng-show="accountFirstName === false || accountSignIn === false">
             <i class="fa fa-sign-in fa-lg"></i>{{"SIGN-IN" | translate}}
         </a>
         <a class="sign-in" ng-href="#/" ng-click="logOut()" ng-show="accountFirstName === true || accountSignIn === true">
@@ -28,10 +28,10 @@
     <div class="large-1 columns" ng-controller="changeLangCtrl as lang">
         <ul class="app-language">
             <li class="current-language">
-                <img id ="protTest_1" ng-src="app/image/flags/{{currentLang}}.png" alt="Language" />
+                <img id ="protTest1" ng-src="app/image/flags/{{currentLang}}.png" alt="Language" />
             </li>
             <ul class="list-language">
-                <li class="lang" id="protTest" ng-click="changeLanguage('fr')"><img src="app/public/image/flags/fr.png" alt="France"/>France</li>
+                <li class="lang" id ="protTest2" ng-click="changeLanguage('fr')"><img src="app/public/image/flags/fr.png" alt="France"/>France</li>
                 <li class="lang" ng-click="changeLanguage('de')"><img src="app/public/image/flags/de.png" alt="Deutschland"/>Deutschland</li>
                 <li class="lang" ng-click="changeLanguage('uk_UA')"><img src="app/public/image/flags/uk_UA.png" alt="Ukraine"/>Ukraine</li>
                 <li class="lang" ng-click="changeLanguage('en_US')"><img src="app/public/image/flags/en_US.png" alt="North America"/>North America</li>

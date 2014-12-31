@@ -10,6 +10,7 @@ describe('app', function() {
         ptor = protractor;
     });
 
+    //check title
     describe('$routeProvider', function () {
         it('should display correct title on home page', function() {
             browser.get('/#');
@@ -17,17 +18,29 @@ describe('app', function() {
         });
     });
 
-    describe('changeLangCtrl', function () {
-        ptor = protractor;
-        var button = element(by.id('protTest'));
-        browser.get('#/login');
+    //check title after click SIGN IN
+    describe('loginCtrl', function () {
+        var button = element(By.id('protTest'));
 
         it('should display correct title when we change locale', function () {
-            ptor.actions().
-                mouseMove(ptor.findElement(protractor.by.id('protTest_1'))).
-                perform();
             button.click();
             expect(browser.getTitle()).toBe('Login');
+        });
+    });
+
+    //check change language
+    describe('changeLangCtrl', function () {
+        var button = element(By.id('protTest2'));
+
+        it('should change language', function () {
+            browser.actions().
+                mouseMove(browser.findElement(ptor.By.id('protTest1'))).
+                perform();
+            button.click();
+
+            element(By.id('proTest3')).getText().then(function (new_text) {
+                expect(new_text).toBe('Créer Un Compte');
+            });
         });
     });
 
