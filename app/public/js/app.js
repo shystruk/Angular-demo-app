@@ -70,13 +70,10 @@ app.filter('encodeURI', function () {
 });
 
 /**
- * Created by v.stokolosa on 12/25/14.
- */
-'use strict';
-
-/**
 * Created by v.stokolosa on 12/30/14.
 */
+// services which uses for GLOBAL functionality
+
 'use strict';
 
 /**

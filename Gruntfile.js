@@ -30,7 +30,6 @@ module.exports = function (grunt) {
                 src: [
                     'app/js/app.js',
                     'app/js/filter.js',
-                    'app/js/directive.js',
                     'app/js/services.js',
                     'app/js/locale/translations.js',
                     'app/js/locale/translateController.js',
