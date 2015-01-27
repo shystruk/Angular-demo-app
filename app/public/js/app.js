@@ -103,7 +103,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'FIRSTNAME': 'First Name',
         'LASTNAME': 'Last Name',
         'CONFIRMPASSWORD': 'Confirm Password',
-        'CHECK_DATA': 'Please enter a valid login and password'
+        'CHECK_DATA': 'Please enter a valid login and password',
+        'CHAT_MESSAGE' : 'Message'
     });
 
     $translateProvider.translations('uk_UA', {
@@ -129,7 +130,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'CREATE': 'Створити Профіль',
         'FIRSTNAME': 'Ім"я',
         'LASTNAME': 'Прізвище',
-        'CONFIRMPASSWORD': 'Повторіть Пароль'
+        'CONFIRMPASSWORD': 'Повторіть Пароль',
+        'CHAT_MESSAGE' : 'Повідомлення'
     });
 
     $translateProvider.translations('de', {
@@ -155,7 +157,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'CREATE': 'Benutzerkonto Erstellen',
         'FIRSTNAME': 'Vorname',
         'LASTNAME': 'Nachname',
-        'CONFIRMPASSWORD': 'Passwort bestätigen'
+        'CONFIRMPASSWORD': 'Passwort bestätigen',
+        'CHAT_MESSAGE' : 'Nachricht'
     });
 
     $translateProvider.translations('fr', {
@@ -181,7 +184,8 @@ app.config(['$translateProvider', function ($translateProvider) {
         'CREATE': 'Créer Un Compte',
         'FIRSTNAME': 'Prénom',
         'LASTNAME': 'Nom',
-        'CONFIRMPASSWORD': 'Confirmez le mot de passe'
+        'CONFIRMPASSWORD': 'Confirmez le mot de passe',
+        'CHAT_MESSAGE' : 'Message'
     });
 
     $translateProvider.determinePreferredLanguage();
@@ -670,3 +674,16 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'localStorageService', f
         }
     };
 }]);
+
+/**
+ * Created by v.stokolosa on 1/27/15.
+ */
+'use strict';
+
+app.directive('chat', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'app/modules/chat/chat.html'
+    };
+});
+

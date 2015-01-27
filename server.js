@@ -1,7 +1,4 @@
-//include files
-var User = require('server/user'),
-    db = require('server/db');
-db.connect();
+//include files (run set NODE_PATH=. (windows))
 
 var http = require('http'),
     url = require('url'),
@@ -41,9 +38,3 @@ http.createServer(function(request, response) {
 }).listen(parseInt(port, 10));
 
 console.log('Static file server running at\n  => http://localhost:' + port + '/\nCTRL + C to shutdown');
-
-
-var Vasyl = new User('Vasyl');
-var Mariia = new User('Mariia');
-
-Vasyl.hello(Mariia);
