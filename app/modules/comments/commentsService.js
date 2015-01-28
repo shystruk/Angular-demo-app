@@ -6,7 +6,7 @@
 app.service('commentsJSON', ['$http', function ($http) {
     return {
         getJSON: function () {
-            return $http.get('app/modules/comments/comments.json');
+            return $http.get('modules/comments/comments.json');
         }
     };
 }]);

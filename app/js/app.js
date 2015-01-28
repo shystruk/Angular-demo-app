@@ -13,27 +13,27 @@ var app = angular.module('app', [
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'app/modules/home/home.html',
+            templateUrl: 'modules/home/home.html',
             controller: 'homeCtrl',
             title: 'V.S.12 | Home'
         }).
         when('/mac', {
-            templateUrl: 'app/modules/product/mac.html',
+            templateUrl: 'modules/product/mac.html',
             controller: 'macCtrl',
             title: 'MacBook'
         }).
         when('/login', {
-            templateUrl: 'app/modules/home/login/login.html',
+            templateUrl: 'modules/home/login/login.html',
             controller: 'loginCtrl',
             title: 'Login'
         }).
         when('/account', {
-            templateUrl: 'app/modules/account/my_account.html',
+            templateUrl: 'modules/account/my_account.html',
             controller: 'accountCtrl',
             title: 'My Account'
         }).
         when('/new-account', {
-            templateUrl: 'app/modules/account/new_account.html',
+            templateUrl: 'modules/account/new_account.html',
             controller: 'newAccountCtrl',
             title: 'New Account'
         }).

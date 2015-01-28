@@ -6,6 +6,6 @@
 app.directive('commentsBlock', function () {
     return {
         restrict: 'E',
-        templateUrl: 'app/modules/comments/comments.html'
+        templateUrl: 'modules/comments/comments.html'
     };
 });

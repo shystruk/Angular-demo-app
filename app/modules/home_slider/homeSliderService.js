@@ -9,7 +9,7 @@ angular.module('homeSliderService', ['ngResource']).
         function getRequest(callback) {
             $http({
                 method: 'GET',
-                url: 'app/modules/home_slider/home_slider.json',
+                url: 'modules/home_slider/home_slider.json',
                 cache: true
             }).success(callback);
         }

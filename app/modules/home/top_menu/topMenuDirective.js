@@ -6,7 +6,7 @@
 app.directive('topBar', function () {
     return {
         restrict: 'AE',
-        templateUrl: 'app/modules/home/top_menu/top_menu.html'
+        templateUrl: 'modules/home/top_menu/top_menu.html'
     };
 });
 

@@ -13,27 +13,27 @@ var app = angular.module('app', [
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/', {
-            templateUrl: 'app/modules/home/home.html',
+            templateUrl: 'modules/home/home.html',
             controller: 'homeCtrl',
             title: 'V.S.12 | Home'
         }).
         when('/mac', {
-            templateUrl: 'app/modules/product/mac.html',
+            templateUrl: 'modules/product/mac.html',
             controller: 'macCtrl',
             title: 'MacBook'
         }).
         when('/login', {
-            templateUrl: 'app/modules/home/login/login.html',
+            templateUrl: 'modules/home/login/login.html',
             controller: 'loginCtrl',
             title: 'Login'
         }).
         when('/account', {
-            templateUrl: 'app/modules/account/my_account.html',
+            templateUrl: 'modules/account/my_account.html',
             controller: 'accountCtrl',
             title: 'My Account'
         }).
         when('/new-account', {
-            templateUrl: 'app/modules/account/new_account.html',
+            templateUrl: 'modules/account/new_account.html',
             controller: 'newAccountCtrl',
             title: 'New Account'
         }).
@@ -281,43 +281,50 @@ app.controller('homeCtrl', ['$scope', '$location', function ($scope, $location) 
 /**
  * Created by v.stokolosa on 12/16/14.
  */
-app.controller('loginCtrl', ['$scope', '$location', '$rootScope', 'localStorageService', function ($scope, $location, $rootScope, localStorageService) {
-    $scope.credentials = {
-        login: '',
-        password: ''
-    };
-    $scope.signInData = [];
-    $scope.loginData = '';
-    $scope.passwordData = '';
-    $scope.accountSignIn = false;
+app.controller('loginCtrl', [
+    '$scope',
+    '$location',
+    '$rootScope',
+    'localStorageService',
+    '$http', function ($scope, $location, $rootScope, localStorageService, $http) {
 
-    $scope.text = 'Hello World!';
+        $scope.credentials = {
+            login: '',
+            password: ''
+        };
+        $scope.signInData = [];
+        $scope.loginData = '';
+        $scope.passwordData = '';
+        $scope.accountSignIn = false;
 
-    //take account data
-    $scope.signInData = localStorageService.get('accountData');
+        $scope.text = 'Hello World!';
 
-    $scope.signIn = function () {
-        var i = 0;
+        //take account data
+        $scope.signInData = localStorageService.get('accountData');
 
-        angular.forEach($scope.signInData, function (value, key, obj) {
-            i++;
-            $scope.loginData = $scope.signInData[key].login;
-            $scope.passwordData = $scope.signInData[key].password;
+        $scope.signIn = function () {
+            var i = 0;
 
-            //check validity of data
-            if ($scope.loginData === $scope.credentials.login && $scope.passwordData === $scope.credentials.password) {
-                $location.path('/account');
-                $scope.accountSignIn = true;
-            } else {
-                $scope.accountSignIn = false;
-            }
-        });
-    };
+            angular.forEach($scope.signInData, function (value, key, obj) {
+                i++;
+                $scope.loginData = $scope.signInData[key].login;
+                $scope.passwordData = $scope.signInData[key].password;
 
-    $scope.createAccount = function () {
-        $location.path('/new-account');
-    };
-}]);
+                //check validity of data
+                if ($scope.loginData === $scope.credentials.login && $scope.passwordData === $scope.credentials.password) {
+                    $location.path('/account');
+                    $scope.accountSignIn = true;
+                } else {
+                    $scope.accountSignIn = false;
+                }
+            });
+        };
+
+        $scope.createAccount = function () {
+            $location.path('/new-account');
+        };
+    }
+]);
 
 
 /**
@@ -335,7 +342,7 @@ app.controller('loginCtrl', ['$scope', '$location', '$rootScope', 'localStorageS
 //}]);
 //============== http request ===========
 app.controller('topBarCtrl', ['$scope', 'MenuHTTP', 'localStorageService', '$rootScope', function ($scope, MenuHTTP, localStorageService, $rootScope) {
-    $scope.logoUrl = 'app/image/logo.jpg';
+    $scope.logoUrl = 'image/logo.jpg';
 
     $scope.menuName = [];
     $scope.accountName = '';
@@ -375,7 +382,7 @@ app.controller('topBarCtrl', ['$scope', 'MenuHTTP', 'localStorageService', '$roo
 app.directive('topBar', function () {
     return {
         restrict: 'AE',
-        templateUrl: 'app/modules/home/top_menu/top_menu.html'
+        templateUrl: 'modules/home/top_menu/top_menu.html'
     };
 });
 
@@ -402,7 +409,7 @@ app.directive("scroll", ['$window', function ($window) {
 
 angular.module('topMenuService', ['ngResource']).
     factory('Menu', ['$resource', function ($resource) {
-        return $resource('app/modules/home/top_menu/:topFile.json', {}, {
+        return $resource('modules/home/top_menu/:topFile.json', {}, {
             query: {method: 'GET', params: {topFile: 'top_menu'}, isArray: true, cache: true}
         });
     }]).
@@ -411,7 +418,7 @@ angular.module('topMenuService', ['ngResource']).
         function getRequest(callback) {
             $http({
                 method: 'GET',
-                url: 'app/modules/home/top_menu/top_menu.json',
+                url: 'modules/home/top_menu/top_menu.json',
                 cache: true
             }).success(callback);
         }
@@ -568,7 +575,7 @@ angular.module('homeSliderService', ['ngResource']).
         function getRequest(callback) {
             $http({
                 method: 'GET',
-                url: 'app/modules/home_slider/home_slider.json',
+                url: 'modules/home_slider/home_slider.json',
                 cache: true
             }).success(callback);
         }
@@ -584,7 +591,7 @@ angular.module('homeSliderService', ['ngResource']).
 app.directive('commentsBlock', function () {
     return {
         restrict: 'E',
-        templateUrl: 'app/modules/comments/comments.html'
+        templateUrl: 'modules/comments/comments.html'
     };
 });
 
@@ -596,7 +603,7 @@ app.directive('commentsBlock', function () {
 app.service('commentsJSON', ['$http', function ($http) {
     return {
         getJSON: function () {
-            return $http.get('app/modules/comments/comments.json');
+            return $http.get('modules/comments/comments.json');
         }
     };
 }]);
@@ -674,16 +681,3 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'localStorageService', f
         }
     };
 }]);
-
-/**
- * Created by v.stokolosa on 1/27/15.
- */
-'use strict';
-
-app.directive('chat', function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'app/modules/chat/chat.html'
-    };
-});
-

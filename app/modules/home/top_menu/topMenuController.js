@@ -13,7 +13,7 @@
 //}]);
 //============== http request ===========
 app.controller('topBarCtrl', ['$scope', 'MenuHTTP', 'localStorageService', '$rootScope', function ($scope, MenuHTTP, localStorageService, $rootScope) {
-    $scope.logoUrl = 'app/image/logo.jpg';
+    $scope.logoUrl = 'image/logo.jpg';
 
     $scope.menuName = [];
     $scope.accountName = '';
