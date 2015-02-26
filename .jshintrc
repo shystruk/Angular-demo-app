@@ -1,0 +1,10 @@
+{
+    "curly": true,     // true: Require {} for every new block or scope
+    "eqeqeq": true,     // true: Require triple equals (===) for comparison
+    "noempty": true,     // true: Prohibit use of empty blocks
+    "undef": true,     // true: Require all non-global variables to be declared (prevents global leaks)
+    "unused": true,     // true: Require all defined variables be used
+    "strict": false,     // true: Requires all functions run in ES5 Strict Mode
+    "globalstrict": true,     // true: Allow global "use strict" (also enables 'strict')
+    "predef": [ "angular", "app" ]
+}

@@ -1,9 +1,21 @@
 /**
  * Created by v.stokolosa on 12/3/14.
  */
+
+'use strict';
+
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        jshint: {
+            allFiles: [
+//                'Gruntfile.js',
+//                '<%= concat.main.dest %>'
+            ],
+            options: {
+                jshintrc: '.jshintrc'
+            }
+        },
         cssmin: {
             css: {
                 src: 'app/css/*.css',
@@ -105,11 +117,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-karma');
 
     //without karma, cssmin, imagemin
-    grunt.registerTask('test', ['concat', 'uglify', 'imagemin', 'cssmin']);
+    grunt.registerTask('test', ['jshint', 'concat', 'uglify', 'imagemin', 'cssmin']);
 
     //default
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'cssmin', 'karma']);
+    grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'imagemin', 'cssmin', 'karma']);
 };
