@@ -10,13 +10,17 @@ var mongoose = require('server/lib/mongoose'),
     Schema = mongoose.Schema;
 
 var schema = new Schema({
-    yourName: {
+    name: {
         type: String,
         unique: true,
         required: true
     },
-    yourThoughts: {
+    thoughts: {
         type: String,
+        required: true
+    },
+    date: {
+        type: Date,
         required: true
     },
     created: {

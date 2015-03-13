@@ -9,18 +9,18 @@
     <h1>Unit Test Results</h1>
     <table cellspacing="0" cellpadding="0" border="0">
       <tr class="overview">
-        <td colspan="3" title="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36">Browser: Chrome 39.0.2171 (Windows 7)</td>
+        <td colspan="3" title="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36">Browser: Chrome 40.0.2214 (Windows 7)</td>
       </tr>
       <tr class="overview">
-        <td colspan="3">Timestamp: 2015-01-21T17:24:55</td>
+        <td colspan="3">Timestamp: 2015-03-12T14:45:02</td>
       </tr>
       <tr>
         <td colspan="3">
           6 tests / 
           0 errors / 
-          0 failures / 
+          5 failures / 
           0 skipped / 
-          runtime: 0.312s
+          runtime: 0.135s
         </td>
       </tr>
       <tr class="header">
@@ -28,39 +28,109 @@
         <td>Spec</td>
         <td>Suite / Results</td>
       </tr>
-      <tr class="pass">
-        <td>Passed in 0.135s</td>
+      <tr class="fail">
+        <td>Failed</td>
         <td>commentsData should have JSON format</td>
-        <td>commentsCtrl</td>
+        <td>
+          commentsCtrl
+          <br />ReferenceError: io is not defined
+    at new <anonymous> (d:/MY/projects/Angular-responsive-app/app/public/js/app.min.js:1:9069)
+    at e (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15815)
+    at Object.instantiate (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15934)
+    at d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:3661
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:16:9)
+    at Object.e [as invoke] (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15815)
+    at Object.workFn (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:2350:20)
+Error: Declaration Location
+    at Object.window.inject.angular.mock.inject [as inject] (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:2321:25)
+    at Suite.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:14:29)
+    at jasmineInterface.describe (d:/MY/projects/Angular-responsive-app/node_modules/karma-jasmine/lib/boot.js:59:18)
+    at d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:9:1
+
+          <br />Expected '[]' to be '[{"name":"Vasyl","thoughts":"Awesome app."}]'.
+Error: Expected '[]' to be '[{"name":"Vasyl","thoughts":"Awesome app."}]'.
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:30:31)
+
+        </td>
       </tr>
-      <tr class="pass">
-        <td>Passed in 0.035s</td>
+      <tr class="fail">
+        <td>Failed</td>
         <td>count shouldn&quot;t be ziro</td>
-        <td>commentsCtrl</td>
+        <td>
+          commentsCtrl
+          <br />ReferenceError: io is not defined
+    at new <anonymous> (d:/MY/projects/Angular-responsive-app/app/public/js/app.min.js:1:9069)
+    at e (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15815)
+    at Object.instantiate (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15934)
+    at d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:3661
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:16:9)
+    at Object.e [as invoke] (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15815)
+    at Object.workFn (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:2350:20)
+
+          <br />Expected 0 not to equal 0.
+Error: Expected 0 not to equal 0.
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:41:27)
+
+        </td>
       </tr>
-      <tr class="pass">
-        <td>Passed in 0.008s</td>
+      <tr class="fail">
+        <td>Failed</td>
         <td>should delete comment whick click</td>
-        <td>commentsCtrl</td>
+        <td>
+          commentsCtrl
+          <br />ReferenceError: io is not defined
+    at new <anonymous> (d:/MY/projects/Angular-responsive-app/app/public/js/app.min.js:1:9069)
+    at e (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15815)
+    at Object.instantiate (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15934)
+    at d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:3661
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:16:9)
+    at Object.e [as invoke] (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:1:15815)
+    at Object.workFn (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:2350:20)
+
+          <br />TypeError: undefined is not a function
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:45:15)
+
+        </td>
       </tr>
-      <tr class="pass">
-        <td>Passed in 0.115s</td>
+      <tr class="fail">
+        <td>Failed</td>
         <td>should display 1 input and 1 textarea</td>
-        <td>commentsBlock Directive</td>
+        <td>
+          commentsBlock Directive
+          <br />Error: Unexpected request: GET modules/comments/comments.html
+No more request expected
+    at $httpBackend (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:1226:9)
+    at t (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:7070)
+    at i (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:5772)
+    at d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:21794
+    at k.$eval (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:28744)
+    at k.$digest (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:27317)
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/comments/comments.test.js:67:20)
+
+        </td>
       </tr>
       <tr class="pass">
         <td>Passed in 0.009s</td>
         <td>should have variable text = &quot;Hello World!&quot;</td>
         <td>loginCtrl</td>
       </tr>
-      <tr class="pass">
-        <td>Passed in 0.01s</td>
+      <tr class="fail">
+        <td>Failed</td>
         <td>should get request and first category is &quot;Mac&quot;</td>
-        <td>topBarCtrl</td>
-      </tr>
-      <tr class="system-out">
-        <td colspan="3"><strong>System output:</strong><br />Chrome 39.0.2171 (Windows 7) LOG: Object{names: function b(b){ ... }}
-</td>
+        <td>
+          topBarCtrl
+          <br />Error: Unexpected request: GET modules/home/top_menu/top_menu.json
+No more request expected
+    at $httpBackend (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:1226:9)
+    at t (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:7070)
+    at i (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:5772)
+    at d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:21794
+    at k.$eval (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:28744)
+    at k.$digest (d:/MY/projects/Angular-responsive-app/app/public/js/angular.min.js:2:27317)
+    at Function.$httpBackend.flush (d:/MY/projects/Angular-responsive-app/bower_components/angular-mocks/angular-mocks.js:1525:38)
+    at Object.<anonymous> (d:/MY/projects/Angular-responsive-app/test/spec/home/top_menu/top_menu.test.js:24:22)
+
+        </td>
       </tr>
     </table>
     <hr/>

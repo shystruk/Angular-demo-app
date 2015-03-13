@@ -2,7 +2,7 @@
     <div class="columns">
 
         <!--{{titleComments}} for translate-->
-        <div id="countOfComments" class="count-comments">{{'COMMENT' | translate}} ({{counts()}})</div>
+        <div id="countOfComments" class="count-comments">{{'COMMENT' | translate}} ({{commentsCount}}{{counts()}})</div>
 
         <form name="formComments" class="mb-30" novalidate>
             <input type="text" ng-model="yourName" ng-minlength="1" placeholder="{{'COM_NAME' | translate}}" required/>
@@ -17,7 +17,7 @@
                     <span class="date-comments">{{comment.date | date:'yyyy/MM/dd'}}</span>
                 </span>
                 <span class="thoughts-comments">{{comment.thoughts}}</span>
-                <a class="remove-comment" ng-click="deleteComment(comment.name)">{{'REMOVE' | translate}}</a>
+                <!--<a class="remove-comment" ng-click="deleteComment(comment.name)">{{'REMOVE' | translate}}</a>-->
             </li>
         </ul>
 

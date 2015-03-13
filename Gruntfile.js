@@ -122,7 +122,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
 
     //without karma, cssmin, imagemin
-    grunt.registerTask('test', ['jshint', 'concat', 'uglify', 'imagemin', 'cssmin']);
+    grunt.registerTask('test', ['concat', 'uglify', 'imagemin', 'cssmin']);
 
     //default
     grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'imagemin', 'cssmin', 'karma']);

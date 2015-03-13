@@ -7,7 +7,8 @@ var app = angular.module('app', [
     'LocalStorageModule',
     'pascalprecht.translate',
     'topMenuService',
-    'homeSliderService'
+    'homeSliderService',
+    'commentsService'
 ]);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {

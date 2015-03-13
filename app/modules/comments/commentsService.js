@@ -3,10 +3,23 @@
  */
 'use strict';
 
-app.service('commentsJSON', ['$http', function ($http) {
-    return {
-        getJSON: function () {
-            return $http.get('modules/comments/comments.json');
+angular.module('commentsService', ['ngResource'])
+//    .factory('CommentsData', ['$resource', function ($resource) {
+//        return $resource('/comments'), {}, {
+//            query: {method: 'GET', isArray: false, cache: true}
+//        }
+//    }])
+    .factory('CommentsData', ['$http', function ($http) {
+        //cached request
+        function getRequest(callback) {
+            $http({
+                method: 'GET',
+                url: '/comments',
+                cache: true
+            }).success(callback);
         }
-    };
-}]);
+        return {
+            names: getRequest
+        };
+    }]);
+

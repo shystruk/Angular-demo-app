@@ -7,7 +7,8 @@ var app = angular.module('app', [
     'LocalStorageModule',
     'pascalprecht.translate',
     'topMenuService',
-    'homeSliderService'
+    'homeSliderService',
+    'commentsService'
 ]);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -407,13 +408,13 @@ app.directive("scroll", ['$window', function ($window) {
  */
 'use strict';
 
-angular.module('topMenuService', ['ngResource']).
-    factory('Menu', ['$resource', function ($resource) {
+angular.module('topMenuService', ['ngResource'])
+    .factory('Menu', ['$resource', function ($resource) {
         return $resource('modules/home/top_menu/:topFile.json', {}, {
             query: {method: 'GET', params: {topFile: 'top_menu'}, isArray: true, cache: true}
         });
-    }]).
-    factory('MenuHTTP', ['$http', function ($http) {
+    }])
+    .factory('MenuHTTP', ['$http', function ($http) {
         //cached request
         function getRequest(callback) {
             $http({
@@ -600,13 +601,26 @@ app.directive('commentsBlock', function () {
  */
 'use strict';
 
-app.service('commentsJSON', ['$http', function ($http) {
-    return {
-        getJSON: function () {
-            return $http.get('modules/comments/comments.json');
+angular.module('commentsService', ['ngResource'])
+//    .factory('CommentsData', ['$resource', function ($resource) {
+//        return $resource('/comments'), {}, {
+//            query: {method: 'GET', isArray: false, cache: true}
+//        }
+//    }])
+    .factory('CommentsData', ['$http', function ($http) {
+        //cached request
+        function getRequest(callback) {
+            $http({
+                method: 'GET',
+                url: '/comments',
+                cache: true
+            }).success(callback);
         }
-    };
-}]);
+        return {
+            names: getRequest
+        };
+    }]);
+
 
 /**
 * Created by v.stokolosa on 12/19/14.
@@ -687,16 +701,29 @@ app.service('commentsJSON', ['$http', function ($http) {
 /**
 * Get data from MongoDB/socket.io
 */
-app.controller('commentsCtrl', ['$scope', '$translate', 'localStorageService', function ($scope, $translate, localStorageService) {
+app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function ($scope, $translate, CommentData) {
+    var socket = io();
+
     $scope.yourName = '';
     $scope.yourThoughts = '';
     $scope.commentsData = [];
+    $scope.commentsCount = '';
 
-    var socket = io();
+//    CommentData.query(function (data) {
+//        if (data && data.result && data.body.length) {
+//            $scope.commentsData = data.body;
+//            console.log($scope.commentsData);
+//        }
+//    });
+    CommentData.names(function (data) {
+        $scope.commentsData = data;
+        $scope.commentsCount = $scope.commentsData.length;
+        console.log($scope.commentsData);
+    });
 
     $scope.addComments = function () {
         $scope.commentDate = new Date();
-        $scope.commentsData.push({
+        $scope.commentsData.unshift({
             name: $scope.yourName,
             thoughts: $scope.yourThoughts,
             date: $scope.commentDate
@@ -710,6 +737,5 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'localStorageService', f
 
     socket.on('comments', function (data) {
         $scope.commentsData = data;
-        console.log($scope.commentsData);
     });
 }]);

@@ -77,16 +77,29 @@
 /**
 * Get data from MongoDB/socket.io
 */
-app.controller('commentsCtrl', ['$scope', '$translate', 'localStorageService', function ($scope, $translate, localStorageService) {
+app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function ($scope, $translate, CommentData) {
+    var socket = io();
+
     $scope.yourName = '';
     $scope.yourThoughts = '';
     $scope.commentsData = [];
+    $scope.commentsCount = '';
 
-    var socket = io();
+//    CommentData.query(function (data) {
+//        if (data && data.result && data.body.length) {
+//            $scope.commentsData = data.body;
+//            console.log($scope.commentsData);
+//        }
+//    });
+    CommentData.names(function (data) {
+        $scope.commentsData = data;
+        $scope.commentsCount = $scope.commentsData.length;
+        console.log($scope.commentsData);
+    });
 
     $scope.addComments = function () {
         $scope.commentDate = new Date();
-        $scope.commentsData.push({
+        $scope.commentsData.unshift({
             name: $scope.yourName,
             thoughts: $scope.yourThoughts,
             date: $scope.commentDate

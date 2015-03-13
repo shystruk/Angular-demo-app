@@ -1,12 +1,20 @@
 /**
  * Created by v.stokolosa on 2/4/15.
- */
-/* 
+
     db-name - angular_demo
-    show db - mongo angular_demo
+    show db - mongo angular_demo (path - mongo/bin)
     show all collections - show collections
     find comments - db.comments.find()
- */
+
+ ====
+ db.scores.find({a: {"name": "Vasyl"}); - find all a objects
+    properties:
+        {a: {$lt: 5}} //less than
+        {a: {$gte: 10}} // Greater than or equal to
+        {a: {$ne: 'b'}} // Not Equal To
+        {a: {$in: ['a', 'b', 'c']}} // Exists in array
+ ====
+ **/
 
 'use strict';
 
@@ -24,16 +32,16 @@ async.series([
 });
 
 
-function open (callback) {
+function open(callback) {
     mongoose.connection.on('open', callback);
 }
 
-function dropDataBase (callback) {
+function dropDataBase(callback) {
     var db = mongoose.connection.db;
     db.dropDatabase(callback);
 }
 
-function requireModels (callback) {
+function requireModels(callback) {
     require('server/models/comment');
 
     async.each(Object.keys(mongoose.models), function (modelName, callback) {
@@ -41,9 +49,10 @@ function requireModels (callback) {
     }, callback);
 }
 
-function createDefaultComment (callback) {
+function createDefaultComment(callback) {
     var comments = [
-        {yourName: 'Admin', yourThoughts: 'Have a good day, dude!'}
+        {name: 'Admin', thoughts: 'Have a good day, dude!', date: new Date()},
+        {name: 'Support', thoughts: 'Thank you, admin!', date: new Date()}
     ];
 
     async.each(comments, function (userData, callback) {
