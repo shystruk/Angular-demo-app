@@ -718,7 +718,6 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function
     CommentData.names(function (data) {
         $scope.commentsData = data;
         $scope.commentsCount = $scope.commentsData.length;
-        console.log($scope.commentsData);
     });
 
     $scope.addComments = function () {
@@ -731,11 +730,13 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function
 
         $scope.yourName = '';
         $scope.yourThoughts = '';
+        $scope.commentsCount = $scope.commentsData.length;
 
         socket.emit('comments', $scope.commentsData);
     };
 
     socket.on('comments', function (data) {
         $scope.commentsData = data;
+        $scope.commentsCount = $scope.commentsData.length;
     });
 }]);

@@ -16,6 +16,16 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             }
         },
+//        requirejs: {
+//            compile: {
+//                options: {
+//                    baseUrl: "app/",
+//                    mainConfigFile: "app/js/main.js",
+//                    name: "app/js/main.js",
+//                    out: "app/public/js/main.min.js"
+//                }
+//            }
+//        },
         cssmin: {
             css: {
                 src: 'app/css/*.css',
