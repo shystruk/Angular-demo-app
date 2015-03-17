@@ -25,8 +25,8 @@ npm install
 ```html
 bower install
 ```
-***database***
-You have to install MongoDB on your PC [MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/) and run it.
+***database***<br/>
+You have to install [MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/) on your PC  and run it.
 ```html
 mongod --dbpath /mongo/db
 ```
@@ -40,8 +40,9 @@ node server.js
 ```
 
 Static file server running at http://localhost:8888
-```
+```html
 Go ahead http://localhost:8888 and check app.
+```
 
 Information
 ============
