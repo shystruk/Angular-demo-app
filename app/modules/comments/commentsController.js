@@ -77,7 +77,7 @@
 /**
 * Get data from MongoDB/socket.io
 */
-app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function ($scope, $translate, CommentData) {
+app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', 'CommentsDelete',  function ($scope, $translate, CommentData, CommentsDelete) {
     var socket = io();
 
     $scope.yourName = '';
@@ -91,7 +91,7 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function
 //            console.log($scope.commentsData);
 //        }
 //    });
-    CommentData.names(function (data) {
+    CommentData.get(function (data) {
         $scope.commentsData = data;
         $scope.commentsCount = $scope.commentsData.length;
     });
@@ -109,6 +109,19 @@ app.controller('commentsCtrl', ['$scope', '$translate', 'CommentsData', function
         $scope.commentsCount = $scope.commentsData.length;
 
         socket.emit('comments', $scope.commentsData);
+    };
+
+    $scope.deleteComment = function (id) {
+        if (id) {
+            CommentsDelete.del(id, function (data) {
+                angular.forEach($scope.commentsData, function (value, key) {
+                    if (value['_id'] === id) {
+                        $scope.commentsData.splice(key, 1);
+                        $scope.commentsCount = $scope.commentsData.length;
+                    }
+                });
+            });
+        }
     };
 
     socket.on('comments', function (data) {

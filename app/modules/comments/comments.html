@@ -17,7 +17,8 @@
                     <span class="date-comments">{{comment.date | date:'yyyy/MM/dd'}}</span>
                 </span>
                 <span class="thoughts-comments">{{comment.thoughts}}</span>
-                <!--<a class="remove-comment" ng-click="deleteComment(comment.name)">{{'REMOVE' | translate}}</a>-->
+                <span id="list-comments-id" ng-show="false">{{comment._id}}</span>
+                <a class="remove-comment" ng-click="deleteComment(comment._id)">{{'REMOVE' | translate}}</a>
             </li>
         </ul>
 

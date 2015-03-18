@@ -16,4 +16,16 @@ module.exports = function (app) {
             res.json(modelData);
         });
     });
+    app.delete('/comments/:id', function (req, res, next) {
+        return mongoose.model('Comment').findById(req.params.id, function (err, comment) {
+            return comment.remove(function (err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('removed');
+                    res.send('');
+                }
+            })
+        });
+    });
 };

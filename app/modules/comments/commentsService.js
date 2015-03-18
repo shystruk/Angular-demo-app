@@ -19,7 +19,18 @@ angular.module('commentsService', ['ngResource'])
             }).success(callback);
         }
         return {
-            names: getRequest
+            get: getRequest
         };
+    }])
+    .factory('CommentsDelete', ['$http', function ($http) {
+        function deleteRequest(id, callback) {
+            $http({
+                method: 'DELETE',
+                url: '/comments/' + id
+            }).success(callback);
+        }
+        return {
+            del: deleteRequest
+        }
     }]);
 
