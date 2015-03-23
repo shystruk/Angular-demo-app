@@ -1,6 +1,8 @@
 Angular app
 ====================
 
+[![Join the chat at https://gitter.im/shystruk/Angular-demo-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shystruk/Angular-demo-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 AngularJS is a JavaScript MVC framework developed by Google.<br/>
 I have decided to write my own AngularJS app where I will be use:<br/>
 - Nodejs for server side;
