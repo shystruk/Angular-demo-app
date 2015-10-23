@@ -28,14 +28,25 @@ npm install
 bower install
 ```
 ***database***<br/>
-You have to install [MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/) on your PC  and run it.
+You have to install [MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/) on your PC.
+MongoDB requires a data directory to store all data. Create folder where you will store data.
 ```html
-mongod --dbpath /mongo/db
+C:\mongo\db
 ```
-than create database
+Go to MongoDB directory from a Command Prompt (for example):
+```html
+C:\Program Files\MongoDB\Server\***version***\bin\
+```
+run (you will see message "waiting for connections on port ***** ")
+```html
+mongod --dbpath C:/mongo/db
+```
+than you need to create database. Go to MongoDB directory from a new window Command Prompt again and create db (you will see message "connectiong to: angular_demo"):  
 ```html
 mongo angular_demo
 ```
+DB has been created and connection to DB has opened and you will see message "connection accepted from 127.0.0.1:*****" on first Command Prompt window. For more details see page [MongoDB](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/)
+
 Thats all. All packages installed. Go to root folder from console and run server
 ```html
 node server.js
